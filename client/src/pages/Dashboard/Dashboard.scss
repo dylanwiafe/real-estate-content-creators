@@ -1,0 +1,371 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/variables";
+
+* {
+  text-decoration: none;
+  font-family: "Poppins";
+}
+nav {
+  background-color: #fff;
+  color: white;
+}
+body {
+  margin: 0;
+}
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0.7rem;
+}
+.nav__column--brand {
+  width: 25%;
+}
+.nav__container--id {
+  width: 25%;
+  display: flex;
+  color: white;
+}
+
+.nav__button {
+  width: 40px;
+  height: 40px;
+  background-color: #00e38c;
+  border: none;
+  padding: 2rem;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 1rem;
+  color: white;
+  font-size: 2rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  @include tablet {
+    width: 123px;
+  }
+}
+.nav__avatar {
+  height: 3.7rem;
+  width: 55rem;
+  border-radius: 5rem;
+  @include desktop {
+    width: 56rem;
+  }
+  object-fit: cover;
+}
+.services-col:nth-child(1) {
+  width: 25%;
+}
+
+.services-col:nth-child(2) {
+  width: 75%;
+}
+
+.nav__column--user-identification {
+  display: flex;
+}
+
+.nav__container--user--id {
+  display: flex;
+}
+
+.row {
+  display: flex;
+}
+
+.row:nth-child(2n + 1) {
+  background-color: #f4f4f4;
+}
+// .service-col {
+//   width: 50%;
+//   text-overflow: ellipsis;
+// }
+/* .col-profile {
+    background-color: violet;
+    width: 3.8rem;
+    border-radius: 71px;
+    height: 3.8rem;
+    margin-top: 1rem;
+  } */
+
+.idk {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: space-between;
+}
+body {
+  background-image: url("./../../assets/bg.png");
+  background-size: cover;
+}
+
+.service__card {
+  background-color: grey;
+
+  // width: 33.33%;
+  height: 10rem;
+  // margin-right: 1rem;
+  // margin-bottom: 1rem;
+  // margin-top: 1rem;
+  @include mobile {
+    // width: 87.33%;
+    // margin-right: 1rem;
+    // margin-bottom: 1rem;
+    // margin-top: 1rem;
+  }
+}
+
+.service__card:nth-child(1),
+.service__card:nth-child(2),
+.service__card:nth-child(3) {
+  // width: 11.063rem;
+  height: 8.375rem;
+  @include desktop {
+    // width: 20.938rem;
+    height: 15.813rem;
+  }
+}
+.service__card:nth-child(1) {
+  background-image: url("./../../assets/images/exterior-photography.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.service__card:nth-child(2) {
+  background-image: url("./../../assets/images/interior-photography.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.service__card:nth-child(3) {
+  background-image: url("./../../assets/images/portrait.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.service__card:nth-child(4) {
+  // width: 11.063rem;
+  //   height: 8.375rem;
+  @include desktop {
+    width: 66rem;
+    // height: 14.875;
+  }
+}
+
+.service__card:nth-child(5) {
+  @include desktop {
+    // width: 43.563rem;
+    height: 32.125rem;
+  }
+}
+
+.service {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  @include tablet {
+    flex-wrap: wrap;
+  }
+}
+
+.services__col {
+  height: 100%;
+  width: 100%;
+}
+
+// .service__row--photography {
+//   display: flex;
+//   height: 11rem;
+//   width: 100%;
+//   @include mobile {
+//     display: grid;
+//     height: 11rem;
+//     width: 100%;
+//     grid-template-columns: 1fr 1fr;
+//   }
+// }
+
+.service__row--contractor {
+  height: 8rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.service__card--lg {
+  //   height: 10rem;
+  background-image: url("./../../assets/images/hire-a-contractor.png");
+  max-width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.service__card--lg-2 {
+  width: 100%;
+  background-color: grey;
+  height: 21rem;
+  margin-top: 1rem;
+  width: 20.5rem;
+  margin-left: 1rem;
+  background-image: url("./../../assets/images/aerial-photography.jpg");
+  @include tablet {
+    width: 100%;
+    margin-left: 0rem;
+  }
+}
+
+// .service__img--exterior-photography {
+//   width: 11.063rem;
+//   height: 8.375rem;
+//   object-fit: cover;
+
+//   @include desktop {
+//     width: 20.938rem;
+//     height: 15.813rem;
+//   }
+// }
+
+// .service__img--interior-photography {
+//   width: 11.063rem;
+//   height: 8.375rem;
+//   object-fit: cover;
+
+//   @include desktop {
+//     width: 20.938rem;
+//     height: 15.813rem;
+//   }
+// }
+
+// .service__img--portraits {
+//   width: 11.063rem;
+//   height: 8.375rem;
+//   object-fit: cover;
+
+//   @include desktop {
+//     width: 20.938rem;
+//     height: 15.813rem;
+//   }
+// }
+
+// .service__img--aerial-photography {
+//   width: 11.063rem;
+//   height: 8.375rem;
+//   @include desktop {
+//     width: 43.563rem;
+//     height: 32.125rem;
+//   }
+// }
+
+// .service__img--hire-a-contractor {
+//   width: 11.063rem;
+//   height: 8.375rem;
+//   @include desktop {
+//     width: 66rem;
+//     height: 14.875rem;
+//   }
+// }
+.property-listings__col {
+  width: 10%;
+}
+
+.fields__container {
+  display: flex;
+}
+
+// .property-listings__value--style,
+// .property-listings__value--status,
+// .property-listings__value--date-listed,
+// .property-listings__value--type,
+// .property-listings__value--address,
+// .property-listings__value--requests {
+//   background-color: #f4f4f4;
+//   padding: 1.2rem;
+//   border-bottom: 1px solid #d3e3f7;
+//   border-top: 1px solid #d3e3f7;
+//   color: #001737;
+// }
+
+.service__grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 100%;
+
+  @include tablet {
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+  }
+}
+
+.responsive-table {
+  display: table;
+  width: 100%;
+}
+
+.responsive-table__header {
+  display: table-caption;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.responsive-table__header {
+  display: table-header-group;
+  background-color: gray;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.responsive-table-header__cell {
+  display: table-cell;
+  padding: 10px;
+  text-align: justify;
+  border-bottom: 1px solid black;
+}
+
+.responsive-table-body__cell--hidden {
+  display: none;
+  @include tablet {
+    display: unset;
+  }
+}
+
+.responsive-table__body {
+  display: table-row-group;
+}
+
+.responsive-table__row {
+  display: table-row;
+  padding: 1.2rem;
+  border-bottom: 1px solid #d3e3f7;
+  border-top: 1px solid #d3e3f7;
+  color: #001737;
+}
+
+.responsive-table__row:nth-child(2n + 1) {
+  background-color: #f4f4f4;
+}
+
+// .responsive-table__row:nth-child(n + 1) {
+//   background-color: #fff;
+// }
+.responsive-table-body__cell {
+  display: table-cell;
+  white-space: nowrap;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 1.2rem;
+}
+
+.responsive-table__divider {
+  height: 1px;
+  background-color: grey;
+}
