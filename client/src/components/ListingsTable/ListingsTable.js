@@ -10,7 +10,8 @@ import AerialPhotographyRequest from "../../assets/icons/drone-photo-icon.svg";
 // import TwilightPhotographyRequest from
 import VirtualTourRequest from "../../assets/icons/virtual-tour-icon.svg";
 import DevelopmentRequest from "../../assets/icons/development-icon.svg";
-
+import dropdownArrow from "../../assets/icons/dropdown-chevron.svg";
+import DeleteListingModal from "../../components/DeleteListingModal";
 class ListingsTable extends Component {
   state = {
     listings: [],
@@ -34,37 +35,69 @@ class ListingsTable extends Component {
   render() {
     return (
       <div className="service">
+        <div class="service__container--title">
+          <h1 class="service__heading">Hire a contractor</h1>
+        </div>
         <div className="service__grid">
-          <div className="service__card" />
-          <div className="service__card" />
-          <div className="service__card" />
-          <div className="service__card--lg" />
-          <div className="service__card--lg-2" />
+          <div className="service__card">
+            <p class="card__heading">lorem ipsum</p>
+            <p class="card__copy">lorem ipsum dolor</p>
+          </div>
+
+          <div className="service__card">
+            <p class="card__heading">lorem ipsum</p>
+            <p class="card__copy">lorem ipsum dolor</p>
+          </div>
+          <div className="service__card">
+            <p class="card__heading">lorem ipsum</p>
+            <p class="card__copy">lorem ipsum dolor</p>
+          </div>
+          <div className="service__card--lg">
+            <p class="card__heading">lorem ipsum</p>
+            <p class="card__copy">lorem ipsum dolor</p>
+          </div>
+          <div className="service__card--lg-2">
+            <p class="card__heading">lorem ipsum</p>
+            <p class="card__copy">lorem ipsum dolor</p>
+          </div>
         </div>
         <div className="responsive-table">
+          <div class="responsive-table__header--title">
+            <h1 class="service__heading">Listings</h1>
+            <button>Filter</button>
+            <button>Export</button>
+          </div>
           <div className="responsive-table__header">
             <div className="responsive-table-header__cell">address</div>
-            <div className="responsive-table-header__cell">type</div>
-            <div className="responsive-table-header__cell">date listed</div>
-            <div className="responsive-table-header__cell">style</div>
-            <div className="responsive-table-header__cell">status</div>
-            <div className="responsive-table-header__cell">
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
+              type
+            </div>
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
+              date listed
+            </div>
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
+              style
+            </div>
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
+              status
+            </div>
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
               {/* twilight photography requests */}
               <img src={TwilightPhotographyRequest} alt=""></img>
             </div>
-            <div className="responsive-table-header__cell">
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
               {/* aerial videography requests */}
               <img src={AerialVideographyRequest} alt=""></img>
             </div>
-            <div className="responsive-table-header__cell">
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
               {/* aerial photography requests */}
               <img src={AerialPhotographyRequest} alt=""></img>
             </div>
-            <div className="responsive-table-header__cell">
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
               {/* virtual tour requests */}
               <img src={VirtualTourRequest} alt=""></img>
             </div>
-            <div className="responsive-table-header__cell">
+            <div className="responsive-table-header__cell responsive-table-body__cell--hidden">
               {/* development requests */}
               <img src={DevelopmentRequest} alt=""></img>
             </div>
@@ -74,23 +107,37 @@ class ListingsTable extends Component {
               <div className="responsive-table-body__cell">
                 placeholder value
               </div>
-              <div className="responsive-table-body__cell">
+              <img class="dropdownCta" src={dropdownArrow} alt="menu-cta" />
+              <button>edit</button>
+              <button>delete </button>
+
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
                 placeholder value
               </div>
-              <div className="responsive-table-body__cell">
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
                 placeholder value
               </div>
-              <div className="responsive-table-body__cell">
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
                 placeholder value
               </div>
-              <div className="responsive-table-body__cell">
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
                 placeholder value
               </div>
-              <div className="responsive-table-body__cell">1 request</div>
-              <div className="responsive-table-body__cell">1 request</div>
-              <div className="responsive-table-body__cell">1 request</div>
-              <div className="responsive-table-body__cell">1 request</div>
-              <div className="responsive-table-body__cell">1 request</div>
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
+                1 request
+              </div>
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
+                1 request
+              </div>
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
+                1 request
+              </div>
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
+                1 request
+              </div>
+              <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
+                1 request
+              </div>
             </div>
           </div>
         </div>

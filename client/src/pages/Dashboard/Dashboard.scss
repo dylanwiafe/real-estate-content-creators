@@ -27,6 +27,7 @@ body {
   width: 25%;
   display: flex;
   color: white;
+  margin-right: 3rem;
 }
 
 .nav__button {
@@ -50,7 +51,7 @@ body {
 }
 .nav__avatar {
   height: 3.7rem;
-  width: 55rem;
+  width: 32rem;
   border-radius: 5rem;
   @include desktop {
     width: 56rem;
@@ -65,9 +66,9 @@ body {
   width: 75%;
 }
 
-.nav__column--user-identification {
-  display: flex;
-}
+// .nav__column--user-identification {
+//   display: flex;
+// }
 
 .nav__container--user--id {
   display: flex;
@@ -79,6 +80,10 @@ body {
 
 .row:nth-child(2n + 1) {
   background-color: #f4f4f4;
+}
+
+.responsive-table__row:nth-child(2n) {
+  background-color: #ffffff;
 }
 // .service-col {
 //   width: 50%;
@@ -101,6 +106,7 @@ body {
 body {
   background-image: url("./../../assets/bg.png");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .service__card {
@@ -124,28 +130,51 @@ body {
 .service__card:nth-child(3) {
   // width: 11.063rem;
   height: 8.375rem;
+  margin: 0.5rem;
   @include desktop {
     // width: 20.938rem;
     height: 15.813rem;
   }
 }
 .service__card:nth-child(1) {
-  background-image: url("./../../assets/images/exterior-photography.png");
+  color: #fff;
+  background: linear-gradient(rgba(0, 130, 170, 0), rgb(0, 0, 0)),
+    url("./../../assets/images/exterior-photography.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  line-height: 0rem;
+  text-align: left;
 }
+
 .service__card:nth-child(2) {
-  background-image: url("./../../assets/images/interior-photography.png");
+  color: #fff;
+  background: linear-gradient(rgba(0, 130, 170, 0), rgb(0, 0, 0)),
+    url("./../../assets/images/interior-photography.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  line-height: 0rem;
+  text-align: left;
 }
 .service__card:nth-child(3) {
-  background-image: url("./../../assets/images/portrait.png");
+  color: #fff;
+  background: linear-gradient(rgba(0, 130, 170, 0), rgb(0, 0, 0)),
+    url("./../../assets/images/portrait.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  line-height: 0rem;
+  text-align: left;
 }
 
 .service__card:nth-child(4) {
@@ -173,10 +202,10 @@ body {
   }
 }
 
-.services__col {
-  height: 100%;
-  width: 100%;
-}
+// .services__col {
+//   height: 100%;
+//   width: 100%;
+// }
 
 // .service__row--photography {
 //   display: flex;
@@ -199,27 +228,55 @@ body {
 
 .service__card--lg {
   //   height: 10rem;
-  background-image: url("./../../assets/images/hire-a-contractor.png");
+  color: #fff;
+  background: linear-gradient(rgba(0, 130, 170, 0), rgb(0, 0, 0)),
+    url("./../../assets/images/hire-a-contractor.png");
+  margin: 0.5rem;
   max-width: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  line-height: 0rem;
+  text-align: left;
   @include tablet {
     width: 100%;
+    grid-column: 1 / span 2;
+    height: 15.813rem;
   }
 }
 
 .service__card--lg-2 {
-  width: 100%;
-  background-color: grey;
-  height: 21rem;
-  margin-top: 1rem;
-  width: 20.5rem;
-  margin-left: 1rem;
-  background-image: url("./../../assets/images/aerial-photography.jpg");
+  color: #fff;
+  height: 12rem;
+  width: 19.5rem;
+  grid-column: 1 / span 2;
+  grid-row: 3 / span 2;
+  min-width: 375px;
+  margin-top: 0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  line-height: 0rem;
+  text-align: left;
+  background: linear-gradient(rgba(0, 130, 170, 0), rgb(0, 0, 0)),
+    url("./../../assets/images/aerial-photography.jpg");
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 6rem;
   @include tablet {
     width: 100%;
     margin-left: 0rem;
+    margin-left: 1rem;
+    height: 38rem;
+    grid-row: 3 / span 2;
+    grid-column: 4 / span 2;
+    grid-row-start: 1;
   }
 }
 
@@ -273,13 +330,9 @@ body {
 //     height: 14.875rem;
 //   }
 // }
-.property-listings__col {
-  width: 10%;
-}
-
-.fields__container {
-  display: flex;
-}
+// .property-listings__col {
+//   width: 10%;
+// }
 
 // .property-listings__value--style,
 // .property-listings__value--status,
@@ -307,36 +360,48 @@ body {
 
 .responsive-table {
   display: table;
-  width: 100%;
+  width: 95%;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  @include tablet {
+    width: 100%;
+  }
 }
 
-.responsive-table__header {
-  display: table-caption;
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-}
+// .responsive-table__header {
+//   display: table-caption;
+//   text-align: center;
+//   font-size: 30px;
+//   font-weight: bold;
+
+// }
 
 .responsive-table__header {
   display: table-header-group;
-  background-color: gray;
+  background-color: #fff;
+  color: #11193c;
   font-weight: bold;
   font-size: 25px;
+  text-align: center;
+  //   font-size: 30px;
+  font-weight: bold;
 }
 
 .responsive-table-header__cell {
   display: table-cell;
   padding: 10px;
+
   text-align: justify;
-  border-bottom: 1px solid black;
+  border-top: 6px solid #11193c;
+  //   border-bottom: 1px solid black;
 }
 
-.responsive-table-body__cell--hidden {
-  display: none;
-  @include tablet {
-    display: unset;
-  }
-}
+// .responsive-table-body__cell--hidden {
+//   display: none;
+//   @include tablet {
+//     display: unset;
+//   }
+// }
 
 .responsive-table__body {
   display: table-row-group;
@@ -361,11 +426,41 @@ body {
   display: table-cell;
   white-space: nowrap;
   margin-left: 1rem;
+  text-align: left;
   margin-right: 1rem;
   padding: 1.2rem;
 }
 
-.responsive-table__divider {
-  height: 1px;
-  background-color: grey;
+// .responsive-table__divider {
+//   height: 1px;
+//   background-color: grey;
+// }
+
+.responsive-table-body__cell--hidden {
+  display: none;
+  @include tablet {
+    display: unset;
+  }
+}
+
+.dropdownCta {
+  display: none;
+  @include tablet {
+    display: unset;
+  }
+}
+
+.service__container--title {
+  width: 100%;
+}
+
+.service__heading {
+  font-family: Poppins;
+}
+
+.card__heading {
+  font-size: 15px;
+}
+.card__copy {
+  font-size: 10px;
 }
