@@ -444,9 +444,9 @@ body {
 }
 
 .dropdownCta {
-  display: none;
+  display: unset;
   @include tablet {
-    display: unset;
+    display: none;
   }
 }
 
