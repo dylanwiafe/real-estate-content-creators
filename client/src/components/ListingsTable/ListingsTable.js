@@ -47,7 +47,7 @@ class ListingsTable extends Component {
   handleDelete = (id) => {
     console.log(id);
     const listingToDelete = this.state.listings.find(
-      (listing) => listing.id === id
+      (listing) => listing.listingID === id
     );
 
     this.setState({ showDeleteModal: true, listingToDelete });
@@ -55,7 +55,7 @@ class ListingsTable extends Component {
 
   handleEdit = (id) => {
     const listingToEdit = this.state.listings.find(
-      (listing) => listing.id === id
+      (listing) => listing.listingID === id
     );
     this.setState({ showEditModal: true, listingToEdit });
   };
@@ -70,10 +70,12 @@ class ListingsTable extends Component {
   confirmDelete = () => {
     console.log("confirm delete?");
     axios
-      .delete("http://localhost:8001/listings" + this.state.listingToDelete.id)
+      .delete(
+        "http://localhost:8001/listing/" + this.state.listingToDelete.listingID
+      )
       .then((response) => {
         console.log(response);
-        return axios.get("http://localhost:8001/listings");
+        return axios.get("http://localhost:8001/listing");
       })
       .then((response) => {
         console.log(response);
@@ -88,7 +90,9 @@ class ListingsTable extends Component {
     console.log("are you sure you want to render these updates?");
 
     axios
-      .put("https://loclahost:8001/listings" + this.state.listingToEdit.id)
+      .put(
+        "https://localhost:8001/listing" + this.state.listingToEdit.listingID
+      )
       .then((response) => {
         console.log(response);
         this.setState({ showEditModal: false, listings: response.data });
@@ -97,19 +101,20 @@ class ListingsTable extends Component {
         console.log(error);
       });
   };
-  // cancelDelete() {
-  //   console.log("would you like to close this modal?");
-  //   const abc = this.setState({ showDeleteModal: false });
-  // }
+
+  cancelDelete = () => {
+    console.log("would you like to close this modal?");
+    this.setState({ showDeleteModal: false });
+  };
 
   render() {
     return (
       <div className="service">
         {this.state.showDeleteModal && (
           <DeleteListingModal
-          // listingToDelete={}
-          // confirmDelete={}
-          // cancelDelete={}
+            // listingToDelete={this.state.listingToDelete}
+            confirmDelete={this.confirmDelete}
+            cancelDelete={this.cancelDelete}
           />
         )}
         {this.state.showEditModal && (
@@ -191,7 +196,7 @@ class ListingsTable extends Component {
           <div className="responsive-table__body">
             {this.state.listings.map((listing) => {
               return (
-                <div className="responsive-table__row">
+                <div className="responsive-table__row" key={listing.listingID}>
                   <div className="responsive-table-body__cell">
                     {listing.address}
                   </div>
@@ -205,7 +210,7 @@ class ListingsTable extends Component {
                   </button>
                   <button
                     className="listing__cta listing__cta--delete-mobile"
-                    onClick={() => this.handleDelete(listing.id)}
+                    onClick={() => this.handleDelete(listing.listingID)}
                   >
                     delete{" "}
                   </button> */}
@@ -241,13 +246,13 @@ class ListingsTable extends Component {
                     <img
                       className="responsive-table-body__icon--edit"
                       src={editIcon}
-                      onClick={() => this.handleEdit(listing.id)}
+                      onClick={() => this.handleEdit(listing.listingID)}
                       alt="icon for editing a listing"
                     />
                     <img
                       className="responsive-table-body__icon--delete"
                       src={deleteIcon}
-                      onClick={() => this.handleDelete(listing.id)}
+                      onClick={() => this.handleDelete(listing.listingID)}
                       alt="icon for deleting a listing"
                     />
                   </div>
