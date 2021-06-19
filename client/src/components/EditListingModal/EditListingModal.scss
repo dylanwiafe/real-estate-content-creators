@@ -2,10 +2,9 @@
 @import "../../styles/partials/typography";
 @import "../../styles/partials/variables";
 
-.delete-listing {
+.edit-listing {
   position: fixed;
   background-color: white;
-  justify-content: center;
   top: 0;
   bottom: 0;
   overflow: hidden;
@@ -13,28 +12,27 @@
   width: 100%;
   display: flex;
   z-index: 2;
-
   @include tablet {
     background: rgba(35, 41, 64, 0.7);
   }
+
   &__card {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     margin: 1rem;
     background-color: #fff;
     height: 100%;
     border-radius: 0.1875rem;
-    max-width: 42rem;
-
+    max-width: 42.5rem;
     @include tablet {
       margin: 12rem 4rem;
       height: fit-content;
     }
   }
-}
-
-.delete-listing__container--close {
-  display: flex;
-  justify-content: flex-end;
-  padding: 1rem;
+  &__container--close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
 }

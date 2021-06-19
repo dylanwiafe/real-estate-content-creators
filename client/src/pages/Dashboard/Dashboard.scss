@@ -21,10 +21,10 @@ body {
   padding: 0.7rem;
 }
 .nav__column--brand {
-  width: 25%;
+  // width: 25%;
 }
 .nav__container--id {
-  width: 25%;
+  // width: 25%;
   display: flex;
   color: white;
   margin-right: 3rem;
@@ -47,6 +47,9 @@ body {
   margin-right: 1.5rem;
   @include tablet {
     width: 123px;
+    margin-top: 0.5rem;
+    padding: 0;
+    border-radius: 0.25rem;
   }
 }
 .nav__avatar {
@@ -411,6 +414,7 @@ body {
   border-top: 6px solid #11193c;
   min-width: 10%;
   max-width: 10%;
+  white-space: normal;
   @include tablet {
     white-space: nowrap;
     padding-right: 3.4rem;
@@ -495,8 +499,8 @@ body {
   padding-bottom: 1rem;
 }
 
-// .listing__cta {
-// }
+.listing__cta {
+}
 .listing__cta--edit-mobile {
   display: unset;
   @include tablet {
@@ -522,3 +526,11 @@ body {
     display: unset;
   }
 }
+
+// .responsive-table-body__icon--delete,
+// .responsive-table-body__icon--edit {
+//   display: none;
+//   @include tablet {
+//     display: unset;
+//   }
+// }

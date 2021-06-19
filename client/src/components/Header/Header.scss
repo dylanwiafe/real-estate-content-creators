@@ -1,0 +1,12 @@
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/variables";
+
+.nav__copy--btn-edit {
+  display: none;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+  @include tablet {
+    display: unset;
+  }
+}

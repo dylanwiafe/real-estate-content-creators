@@ -11,11 +11,19 @@ import AerialPhotographyRequest from "../../assets/icons/drone-photo-icon.svg";
 import VirtualTourRequest from "../../assets/icons/virtual-tour-icon.svg";
 import DevelopmentRequest from "../../assets/icons/development-icon.svg";
 import dropdownArrow from "../../assets/icons/dropdown-chevron.svg";
+import EditListingModal from "../EditListingModal/EditListingModal";
 import DeleteListingModal from "../../components/DeleteListingModal/DeleteListingModal";
+import editIcon from "../../assets/icons/edit-24px.svg";
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
+
+// import ServiceCardGrid from "../ServiceCardGrid/ServiceCardGrid";
+
 class ListingsTable extends Component {
   state = {
     listings: [],
     showDeleteModal: false,
+    showEditModal: false,
+    listingToEdit: {},
     listingToDelete: {},
   };
 
@@ -45,6 +53,12 @@ class ListingsTable extends Component {
     this.setState({ showDeleteModal: true, listingToDelete });
   };
 
+  handleEdit = (id) => {
+    const listingToEdit = this.state.listings.find(
+      (listing) => listing.id === id
+    );
+    this.setState({ showEditModal: true, listingToEdit });
+  };
   //inside the handle delete I'm using the find method on the state
   //of listings to do a strict equals comparison on the id of the item I want to delete
   //to one that exists in the json object
@@ -70,6 +84,19 @@ class ListingsTable extends Component {
       });
   };
 
+  confirmEdit = () => {
+    console.log("are you sure you want to render these updates?");
+
+    axios
+      .put("https://loclahost:8001/listings" + this.state.listingToEdit.id)
+      .then((response) => {
+        console.log(response);
+        this.setState({ showEditModal: false, listings: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   // cancelDelete() {
   //   console.log("would you like to close this modal?");
   //   const abc = this.setState({ showDeleteModal: false });
@@ -85,30 +112,38 @@ class ListingsTable extends Component {
           // cancelDelete={}
           />
         )}
+        {this.state.showEditModal && (
+          <EditListingModal
+          // listingToDelete={}
+          // confirmDelete={}
+          // cancelDelete={}
+          />
+        )}
+        {/* <ServiceCardGrid /> */}
         <div className="service__container--title">
           <h1 className="service__heading">Hire a contractor</h1>
         </div>
         <div className="service__grid">
           <div className="service__card">
-            <p className="card__heading">lorem ipsum</p>
-            <p className="card__copy">lorem ipsum dolor</p>
+            <p className="card__heading">exterior photography</p>
+            <p className="card__copy">view experts in my area</p>
           </div>
 
           <div className="service__card">
-            <p className="card__heading">lorem ipsum</p>
-            <p className="card__copy">lorem ipsum dolor</p>
+            <p className="card__heading">interior photography</p>
+            <p className="card__copy">view experts in my area</p>
           </div>
           <div className="service__card">
-            <p className="card__heading">lorem ipsum</p>
-            <p className="card__copy">lorem ipsum dolor</p>
+            <p className="card__heading">portraits</p>
+            <p className="card__copy">view experts in my area</p>
           </div>
           <div className="service__card--lg">
-            <p className="card__heading">lorem ipsum</p>
-            <p className="card__copy">lorem ipsum dolor</p>
+            <p className="card__heading">misc.</p>
+            <p className="card__copy">view experts in my area</p>
           </div>
           <div className="service__card--lg-2">
-            <p className="card__heading">lorem ipsum</p>
-            <p className="card__copy">lorem ipsum dolor</p>
+            <p className="card__heading">aerial photography</p>
+            <p className="card__copy">hire experts in my area</p>
           </div>
         </div>
 
@@ -165,15 +200,15 @@ class ListingsTable extends Component {
                     src={dropdownArrow}
                     alt="menu-cta"
                   />
-                  <button className="listing__cta listing__cta--edit-mobile">
+                  {/* <button className="listing__cta listing__cta--edit-mobile">
                     edit
                   </button>
                   <button
                     className="listing__cta listing__cta--delete-mobile"
-                    onClick={this.handleDelete}
+                    onClick={() => this.handleDelete(listing.id)}
                   >
                     delete{" "}
-                  </button>
+                  </button> */}
 
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
                     {listing.type || "null"}
@@ -203,8 +238,18 @@ class ListingsTable extends Component {
                     {listing.developmentRequests || "0x requests"}
                   </div>
                   <div>
-                    <button className="listing__cta--edit-desktop"></button>
-                    <button className="listing__cta--delete-desktop"></button>
+                    <img
+                      className="responsive-table-body__icon--edit"
+                      src={editIcon}
+                      onClick={() => this.handleEdit(listing.id)}
+                      alt="icon for editing a listing"
+                    />
+                    <img
+                      className="responsive-table-body__icon--delete"
+                      src={deleteIcon}
+                      onClick={() => this.handleDelete(listing.id)}
+                      alt="icon for deleting a listing"
+                    />
                   </div>
                 </div>
               );
