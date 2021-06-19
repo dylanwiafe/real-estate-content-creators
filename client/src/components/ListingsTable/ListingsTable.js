@@ -165,8 +165,15 @@ class ListingsTable extends Component {
                     src={dropdownArrow}
                     alt="menu-cta"
                   />
-                  <button>edit</button>
-                  <button>delete </button>
+                  <button className="listing__cta listing__cta--edit-mobile">
+                    edit
+                  </button>
+                  <button
+                    className="listing__cta listing__cta--delete-mobile"
+                    onClick={this.handleDelete}
+                  >
+                    delete{" "}
+                  </button>
 
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
                     {listing.type || "null"}

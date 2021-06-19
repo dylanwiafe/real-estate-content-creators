@@ -51,10 +51,15 @@ body {
 }
 .nav__avatar {
   height: 3.7rem;
-  width: 32rem;
   border-radius: 5rem;
-  @include desktop {
+  position: unset;
+  min-width: 3.8rem;
+  max-width: 3.8rem;
+  @include tablet {
     width: 56rem;
+    position: unset;
+    min-width: 3.8rem;
+    max-width: 3.8rem;
   }
   object-fit: cover;
 }
@@ -76,6 +81,7 @@ body {
 
 .row {
   display: flex;
+  justify-content: center;
 }
 
 .row:nth-child(2n + 1) {
@@ -241,13 +247,15 @@ body {
   justify-content: end;
   line-height: 0rem;
   text-align: left;
+
   @include tablet {
-    width: 80rem;
     grid-column: 1 / span 2;
-    height: 4.813rem;
+    height: 5.813rem;
     position: absolute;
     padding-top: 15rem;
-    margin-top: 18rem;
+    margin-top: 17.3rem;
+    max-width: 59rem;
+    min-width: 59.4rem;
   }
 }
 
@@ -257,7 +265,7 @@ body {
   width: 19.5rem;
   grid-column: 1 / span 2;
   grid-row: 3 / span 2;
-  min-width: 375px;
+  min-width: 359px;
   margin-top: 0;
   color: white;
   display: flex;
@@ -273,13 +281,13 @@ body {
   margin-right: 0.5rem;
   margin-bottom: 6rem;
   @include tablet {
-    width: 100%;
-    margin-left: 0rem;
+    width: 70%;
     margin-left: 1rem;
-    height: 38rem;
+    height: 37.6rem;
     grid-row: 3 / span 2;
     grid-column: 4 / span 2;
     grid-row-start: 1;
+    margin-top: 0.5rem;
   }
 }
 
@@ -389,14 +397,24 @@ body {
   text-align: center;
   //   font-size: 30px;
   font-weight: bold;
+  @include tablet {
+    justify-content: center;
+    padding-left: 22.8rem;
+  }
 }
 
 .responsive-table-header__cell {
   display: table-cell;
   padding: 10px;
-
+  min-width: 7rem;
   text-align: justify;
   border-top: 6px solid #11193c;
+  min-width: 10%;
+  max-width: 10%;
+  @include tablet {
+    white-space: nowrap;
+    padding-right: 3.4rem;
+  }
   //   border-bottom: 1px solid black;
 }
 
@@ -412,11 +430,15 @@ body {
 }
 
 .responsive-table__row {
-  display: table-row;
+  // display: table-row;
+  display: flex;
   padding: 1.2rem;
   border-bottom: 1px solid #d3e3f7;
   border-top: 1px solid #d3e3f7;
   color: #001737;
+  @include tablet {
+    justify-content: space-around;
+  }
 }
 
 .responsive-table__row:nth-child(2n + 1) {
@@ -432,7 +454,7 @@ body {
   margin-left: 1rem;
   text-align: left;
   margin-right: 1rem;
-  padding: 1.2rem;
+  // padding: 1.2rem;
 }
 
 // .responsive-table__divider {
@@ -460,11 +482,31 @@ body {
 
 .service__heading {
   font-family: Poppins;
+  text-align: left;
+  margin: 0.5rem;
 }
 
 .card__heading {
   font-size: 15px;
+  padding-left: 1rem;
 }
 .card__copy {
   font-size: 10px;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+.listing__cta {
+}
+.listing__cta--edit-mobile {
+  display: unset;
+  @include tablet {
+    display: none;
+  }
+}
+.listing__cta--delete-mobile {
+  display: unset;
+  @include tablet {
+    display: none;
+  }
 }

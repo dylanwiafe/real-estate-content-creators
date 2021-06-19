@@ -1,0 +1,12 @@
+.delete-listing {
+  position: fixed;
+  background-color: white;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  z-index: 2;
+}
