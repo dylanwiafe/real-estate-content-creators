@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import ListingsTable from "../../components/ListingsTable/ListingsTable";
 import "../Dashboard/Dashboard.scss";
-import axios from "axios";
+// import axios from "axios";
 // import Header from "../components/Header/Header";
 class Dashboard extends Component {
   // state = {

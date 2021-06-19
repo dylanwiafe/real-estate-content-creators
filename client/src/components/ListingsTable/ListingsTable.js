@@ -70,10 +70,10 @@ class ListingsTable extends Component {
       });
   };
 
-  cancelDelete() {
-    console.log("would you like to close this modal?");
-    const abc = this.setState({ showDeleteModal: false });
-  }
+  // cancelDelete() {
+  //   console.log("would you like to close this modal?");
+  //   const abc = this.setState({ showDeleteModal: false });
+  // }
 
   render() {
     return (
@@ -188,19 +188,23 @@ class ListingsTable extends Component {
                     {listing.status || "null"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.TwilightPhotographyRequests || "null"}
+                    {listing.TwilightPhotographyRequests || "0x requests"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.droneVideoRequests || "null"}
+                    {listing.droneVideoRequests || "0x requests"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.dronePhotoRequest || "null"}
+                    {listing.dronePhotoRequest || "0x requests"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.virtualTourRequests || "null"}
+                    {listing.virtualTourRequests || "0x requests"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.developmentRequests}
+                    {listing.developmentRequests || "0x requests"}
+                  </div>
+                  <div>
+                    <button className="listing__cta--edit-desktop"></button>
+                    <button className="listing__cta--delete-desktop"></button>
                   </div>
                 </div>
               );

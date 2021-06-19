@@ -454,7 +454,6 @@ body {
   margin-left: 1rem;
   text-align: left;
   margin-right: 1rem;
-  // padding: 1.2rem;
 }
 
 // .responsive-table__divider {
@@ -496,8 +495,8 @@ body {
   padding-bottom: 1rem;
 }
 
-.listing__cta {
-}
+// .listing__cta {
+// }
 .listing__cta--edit-mobile {
   display: unset;
   @include tablet {
@@ -508,5 +507,18 @@ body {
   display: unset;
   @include tablet {
     display: none;
+  }
+}
+
+.listing__cta--edit-desktop {
+  display: none;
+  @include tablet {
+    display: unset;
+  }
+}
+.listing__cta--delete-desktop {
+  display: none;
+  @include tablet {
+    display: unset;
   }
 }
