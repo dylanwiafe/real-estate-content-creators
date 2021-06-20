@@ -13,8 +13,8 @@ import DevelopmentRequest from "../../assets/icons/development-icon.svg";
 import dropdownArrow from "../../assets/icons/dropdown-chevron.svg";
 import EditListingModal from "../EditListingModal/EditListingModal";
 import DeleteListingModal from "../../components/DeleteListingModal/DeleteListingModal";
-import editIcon from "../../assets/icons/edit-24px.svg";
-import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
+import editIcon from "../../assets/icons/edit-icon.svg";
+import deleteIcon from "../../assets/icons/delete-icon.svg";
 
 // import ServiceCardGrid from "../ServiceCardGrid/ServiceCardGrid";
 
@@ -243,18 +243,24 @@ class ListingsTable extends Component {
                     {listing.developmentRequests || "0x requests"}
                   </div>
                   <div>
-                    <img
-                      className="responsive-table-body__icon--edit"
-                      src={editIcon}
-                      onClick={() => this.handleEdit(listing.listingID)}
-                      alt="icon for editing a listing"
-                    />
-                    <img
-                      className="responsive-table-body__icon--delete"
-                      src={deleteIcon}
-                      onClick={() => this.handleDelete(listing.listingID)}
-                      alt="icon for deleting a listing"
-                    />
+                    <div className="responsive-table-body__container--buttons">
+                      <button className="responsive-table-body__button responsive-table-body__button--edit">
+                        <img
+                          className="responsive-table-body__icon--edit"
+                          src={editIcon}
+                          onClick={() => this.handleEdit(listing.listingID)}
+                          alt="icon for editing a listing"
+                        />
+                      </button>
+                      <button className="responsive-table-body__button responsive-table-body__button--delete">
+                        <img
+                          className="responsive-table-body__icon--delete"
+                          src={deleteIcon}
+                          onClick={() => this.handleDelete(listing.listingID)}
+                          alt="icon for deleting a listing"
+                        />
+                      </button>
+                    </div>
                   </div>
                 </div>
               );

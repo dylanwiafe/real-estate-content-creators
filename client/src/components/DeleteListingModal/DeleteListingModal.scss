@@ -13,6 +13,7 @@
   width: 100%;
   display: flex;
   z-index: 2;
+  align-items: center;
 
   @include tablet {
     background: rgba(35, 41, 64, 0.7);
@@ -27,8 +28,9 @@
     max-width: 42rem;
 
     @include tablet {
-      margin: 12rem 4rem;
-      height: fit-content;
+      margin: 0.75rem 0.75rem 0.75rem 0.75rem;
+      height: 25rem;
+      width: 25rem;
     }
   }
 }
@@ -37,4 +39,39 @@
   display: flex;
   justify-content: flex-end;
   padding: 1rem;
+}
+
+.delete-listing__container--outer {
+  background-image: url("../../assets/bg.png");
+  height: 30rem;
+  width: 30rem;
+  border-radius: 0.25rem;
+}
+
+.delete-listing__button--cancel {
+  background-color: #00e38c;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  width: 95px;
+  height: 30px;
+  margin-right: 1rem;
+  @include tablet {
+    width: 75px;
+    height: 30px;
+  }
+}
+
+.delete-listing__button--confirm {
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #757c99;
+  color: #757c99;
+  width: 95px;
+  height: 30px;
+  margin-right: 1rem;
+  @include tablet {
+    width: 75px;
+    height: 30px;
+  }
 }

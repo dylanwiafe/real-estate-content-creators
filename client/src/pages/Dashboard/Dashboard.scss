@@ -422,6 +422,107 @@ body {
   //   border-bottom: 1px solid black;
 }
 
+.responsive-table-header__cell:nth-child(1) {
+  @include tablet {
+    width: 15%;
+  }
+}
+.responsive-table-header__cell:nth-child(2) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-header__cell:nth-child(3) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-header__cell:nth-child(4) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-header__cell:nth-child(5) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-header__cell:nth-child(6) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-header__cell:nth-child(7) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-header__cell:nth-child(8) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-header__cell:nth-child(9) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-header__cell:nth-child(10) {
+  @include tablet {
+    width: 10%;
+  }
+}
+
+.responsive-table-body__cell:nth-child(1) {
+  @include tablet {
+    width: 15%;
+  }
+}
+.responsive-table-body__cell:nth-child(2) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-body__cell:nth-child(3) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-body__cell:nth-child(4) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-body__cell:nth-child(5) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-body__cell:nth-child(6) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-body__cell:nth-child(7) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-body__cell:nth-child(8) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-body__cell:nth-child(9) {
+  @include tablet {
+    width: 10%;
+  }
+}
+.responsive-table-body__cell:nth-child(10) {
+  @include tablet {
+    width: 10%;
+  }
+}
 // .responsive-table-body__cell--hidden {
 //   display: none;
 //   @include tablet {
@@ -534,3 +635,22 @@ body {
 //     display: unset;
 //   }
 // }
+
+.responsive-table-body__container--buttons {
+  display: flex;
+}
+.responsive-table-body__button {
+  width: 75px;
+  height: 24px;
+  border-radius: 20px;
+
+  border: none;
+}
+
+.responsive-table-body__button--edit {
+  background-color: #2464fc;
+}
+
+.responsive-table-body__button--delete {
+  background-color: #ff0000;
+}

@@ -1,7 +1,77 @@
 import React, { Component } from "react";
 import cancelIcon from "../../assets/icons/cancel-icon.svg";
 import "./EditListingModal.scss";
+import axios from "axios";
 class EditListingModal extends Component {
+  state = {
+    address: "",
+    dateListed: "",
+    type: "",
+    style: "",
+    status: "",
+    dronePhotoRequests: "",
+    droneVideoRequests: "",
+    developmentRequests: "",
+    virtualTourRequests: "",
+    formSubmit: false,
+    twilightPhotoRequests: "",
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    const requiredListingData = {
+      id: "",
+      address: event.target.address,
+      dateListed: event.target.dateListed,
+      type: event.target.type,
+      style: event.target.style,
+      status: event.target.status,
+      dronePhotoRequests: event.target.dronePhotoRequests,
+      droneVideoRequests: event.target.droneVideoRequests,
+      developmentRequests: event.target.developmentRequests,
+      virtualTourRequests: event.target.virtualTourRequests,
+      twilightPhotoRequests: event.target.twilightPhotoRequests,
+    };
+
+    console.log(requiredListingData);
+
+    axios
+      .put(
+        `http://localhost8001/listing/edit ${this.state.listing.id}`,
+        requiredListingData
+      )
+      .then((response) => {
+        console.log(response);
+        this.setState({ formSubmit: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    event.target.reset();
+  };
+
+  componentDidMount = () => {
+    const id = this.props.match.params.id;
+    axios.get(`http://localhost8001/listing/${id}`).then((response) => {
+      console.log(response.data);
+      this.setState = {
+        id: response.id,
+        address: response.address,
+        dateListed: response.dateListed,
+        type: response.type,
+        style: response.style,
+        status: response.status,
+        dronePhotoRequests: response.dronePhotoRequests,
+        droneVideoRequests: response.droneVideoRequests,
+        developmentRequests: response.developmentRequests,
+        virtualTourRequests: response.virtualTourRequests,
+        twilightPhotoRequests: response.twilightPhotoRequests,
+      };
+    });
+  };
+
   render() {
     return (
       <div className="edit-listing">
