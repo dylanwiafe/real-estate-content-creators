@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-// import closeModalIcon from "../../assets/icons"
+// import { Link } from "react-router-dom";
+// import closeModalIcon from "../../assets/icons";
 import axios from "axios";
 
 class AddNewListingModal extends Component {
@@ -31,7 +31,7 @@ class AddNewListingModal extends Component {
 
   componentDidMount = () => {
     axios
-      .get("https://localhose:8001/listing")
+      .get("http://localhost:8001/listing")
       .then((response) => {
         this.setState({
           selectStatus: response.data,
@@ -44,59 +44,63 @@ class AddNewListingModal extends Component {
       });
   };
   handleChange = (event) => {
-    const { name, value } = event.target;
+    // const { name, value } = event.target;
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    const name = target.name;
 
     this.setState({ [name]: value });
   };
 
-  isFormCompleted = () => {
-    if (
-      !this.state.addListingAddress.trim() ||
-      !this.state.addListingType.trim() ||
-      !this.state.addListingDate.trim() ||
-      !this.state.selectStatus.trim() ||
-      !this.state.addListingStyle.trim() ||
-      !this.state.addListingTwilightPhotoRequests ||
-      !this.state.addListingAerialPhotoRequests ||
-      !this.state.addListingAerialVideoRequests ||
-      !this.state.addListingVirtualTourRequests ||
-      !this.state.addListingDevelopmentRequests
-    ) {
-      return false;
-    } else {
-      return true;
-    }
-  };
+  // isFormCompleted = () => {
+  //   if (
+  //     !this.state.addListingAddress ||
+  //     !this.state.selectType ||
+  //     !this.state.addListingDate ||
+  //     !this.state.selectStatus ||
+  //     !this.state.selectStyle ||
+  //     !this.state.addListingTwilightPhotoRequests ||
+  //     !this.state.addListingAerialPhotoRequests ||
+  //     !this.state.addListingAerialVideoRequests ||
+  //     !this.state.addListingVirtualTourRequests ||
+  //     !this.state.addListingDevelopmentRequests
+  //   ) {
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // };
 
   handleUpload = (event) => {
     event.preventDefault();
-    console.log(this.state);
-    console.log(this.isFormCompleted());
+    // console.log(this.state);
+    // console.log(this.isFormCompleted());
 
-    if (this.isFormCompleted()) {
-      const data = {
-        address: this.state.addListingAddress,
-        dateListed: this.state.addListingDate,
-        type: this.state.addListingType,
-        style: this.state.addListingStyle,
-        status: this.state.addListingStatus,
-        dronePhotoRequests: this.state.addListingAerialPhotoRequests,
-        droneVideoRequests: this.state.addListingAerialVideoRequests,
-        developmentRequests: this.state.addListingDevelopmentRequests,
-        virtualTourRequests: this.state.addListingVirtualTourRequests,
-        twilightPhotoRequests: this.state.addListingTwilightPhotoRequests,
-      };
-      console.log(data);
-      axios
-        .post("https://localhost:8001/listing/add", data)
-        .then(function (response) {
-          console.log(response);
-          alert("a new listing has been created");
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    }
+    // if (this.isFormCompleted()) {
+    const data = {
+      address: this.state.addListingAddress,
+      dateListed: this.state.addListingDate,
+      type: this.state.selectType,
+      style: this.state.selectStyle,
+      status: this.state.selectStatus,
+      dronePhotoRequests: this.state.addListingAerialPhotoRequests,
+      droneVideoRequests: this.state.addListingAerialVideoRequests,
+      developmentRequests: this.state.addListingDevelopmentRequests,
+      virtualTourRequests: this.state.addListingVirtualTourRequests,
+      twilightPhotoRequests: this.state.addListingTwilightPhotoRequests,
+    };
+    console.log(data);
+    axios
+      .post("http://localhost:8001/listing/", data)
+      .then(function (response) {
+        console.log(response);
+        // alert("a new listing has been created");
+        return axios.get("http://localhost:8001/listing");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // }
   };
 
   handleSelectStyle = (event) => {
@@ -119,9 +123,7 @@ class AddNewListingModal extends Component {
       <div class="add-new-listing">
         <div class="add-new-listing__row--header">
           <h2>Add a new listing</h2>
-          <Link>
-            {/* <img src={closeModalIcon} alt="close modal icon" /> */}
-          </Link>
+          {/* <img src={closeModalIcon} alt="close modal icon" /> */}
         </div>
         <div class="add-new-listing__col">
           <div class="add-new-listing__row">
@@ -142,6 +144,13 @@ class AddNewListingModal extends Component {
               value={this.state.selectStyle}
             >
               {" "}
+              {this.state.styles.map((elem, index) => {
+                return (
+                  <option value={elem} key={index}>
+                    {elem}
+                  </option>
+                );
+              })}
             </select>
           </div>
         </div>
@@ -164,7 +173,13 @@ class AddNewListingModal extends Component {
               onChange={this.handleSelectType}
               value={this.state.selectType}
             >
-              {" "}
+              {this.state.type.map((elem, index) => {
+                return (
+                  <option value={elem} key={index}>
+                    {elem}
+                  </option>
+                );
+              })}{" "}
             </select>
           </div>
 
@@ -175,7 +190,13 @@ class AddNewListingModal extends Component {
               onChange={this.handleMarketStatus}
               value={this.state.selectStatus}
             >
-              {" "}
+              {this.state.status.map((elem, index) => {
+                return (
+                  <option value={elem} key={index}>
+                    {elem}
+                  </option>
+                );
+              })}
             </select>
           </div>
         </div>
@@ -234,6 +255,9 @@ class AddNewListingModal extends Component {
               checked={this.state.addListingTwilightPhotoRequests === true}
             />
           </div>
+        </div>
+        <div>
+          <button onClick={this.handleUpload}>upload listing</button>
         </div>
       </div>
     );

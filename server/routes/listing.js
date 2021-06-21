@@ -74,7 +74,7 @@ const getOneProperty = (req, res) => {
 };
 const addProperty = (req, res) => {
   const newProperty = {
-    agentID: req.body.agentID,
+    agentID: "",
     address: req.body.address,
     dateListed: req.body.dateListed,
     type: req.body.type,
@@ -195,7 +195,7 @@ const deleteOneProperty = (req, res) => {
 
 router.get("/", getAllProperties);
 router.get("/:id", getOneProperty);
-router.post("/:id", addProperty);
+router.post("/", addProperty);
 router.put("/:id", editOneProperty);
 router.delete("/:id", deleteOneProperty);
 

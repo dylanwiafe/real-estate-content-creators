@@ -52,25 +52,25 @@ class EditListingModal extends Component {
     event.target.reset();
   };
 
-  componentDidMount = () => {
-    const id = this.props.match.params.id;
-    axios.get(`http://localhost8001/listing/${id}`).then((response) => {
-      console.log(response.data);
-      this.setState = {
-        id: response.id,
-        address: response.address,
-        dateListed: response.dateListed,
-        type: response.type,
-        style: response.style,
-        status: response.status,
-        dronePhotoRequests: response.dronePhotoRequests,
-        droneVideoRequests: response.droneVideoRequests,
-        developmentRequests: response.developmentRequests,
-        virtualTourRequests: response.virtualTourRequests,
-        twilightPhotoRequests: response.twilightPhotoRequests,
-      };
-    });
-  };
+  // componentDidMount = () => {
+  //   const id = this.props.match.params.id;
+  //   axios.get(`http://localhost8001/listing/${id}`).then((response) => {
+  //     console.log(response.data);
+  //     this.setState = {
+  //       id: response.id,
+  //       address: response.address,
+  //       dateListed: response.dateListed,
+  //       type: response.type,
+  //       style: response.style,
+  //       status: response.status,
+  //       dronePhotoRequests: response.dronePhotoRequests,
+  //       droneVideoRequests: response.droneVideoRequests,
+  //       developmentRequests: response.developmentRequests,
+  //       virtualTourRequests: response.virtualTourRequests,
+  //       twilightPhotoRequests: response.twilightPhotoRequests,
+  //     };
+  //   });
+  // };
 
   render() {
     return (
