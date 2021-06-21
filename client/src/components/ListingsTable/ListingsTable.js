@@ -120,9 +120,10 @@ class ListingsTable extends Component {
         )}
         {this.state.showEditModal && (
           <EditListingModal
-          // listingToDelete={}
-          // confirmDelete={}
-          // cancelDelete={}
+            listingToEdit={this.state.listingToEdit}
+            // listingToDelete={}
+            // confirmDelete={}
+            // cancelDelete={}
           />
         )}
         {/* <ServiceCardGrid /> */}
