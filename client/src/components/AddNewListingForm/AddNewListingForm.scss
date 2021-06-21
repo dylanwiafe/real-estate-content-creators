@@ -2,9 +2,10 @@
 @import "../../styles/partials/typography";
 @import "../../styles/partials/variables";
 
-.edit-listing {
+.add-new-listing {
   position: fixed;
   background-color: white;
+  justify-content: center;
   top: 0;
   bottom: 0;
   overflow: hidden;
@@ -12,6 +13,7 @@
   width: 100%;
   display: flex;
   z-index: 2;
+  align-items: center;
   @include tablet {
     background: rgba(35, 41, 64, 0.7);
   }
@@ -19,19 +21,44 @@
   &__card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     margin: 1rem;
     background-color: #fff;
     height: 100%;
     border-radius: 0.1875rem;
-    max-width: 42.5rem;
+    max-width: 42rem;
 
     @include tablet {
-      margin: -4.25rem 0.75rem 1.75rem 22.75rem;
-      height: 42rem;
+      margin: 0.75rem 0.75rem 0.75rem 0.75rem;
+      height: 33rem;
       width: 35rem;
     }
   }
+}
+
+.add-new-listing__container--outer {
+  background-image: url("../../assets/bg.png");
+  //   height: 30rem;
+  //   width: 30rem;
+  border-radius: 0.25rem;
+  @include tablet {
+    height: 35rem;
+    width: 37rem;
+  }
+}
+
+button {
+  background-color: #00e38c;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  width: 95px;
+  height: 30px;
+  margin-right: 1rem;
+  @include tablet {
+    width: 75px;
+    height: 30px;
+  }
+
   &__container--close {
     display: flex;
     justify-content: flex-end;

@@ -108,6 +108,7 @@ class ListingsTable extends Component {
   };
 
   render() {
+    console.log(this.state.listings, " this console");
     return (
       <div className="service">
         {this.state.showDeleteModal && (
@@ -155,8 +156,8 @@ class ListingsTable extends Component {
         <div className="responsive-table">
           <div className="responsive-table__header--title">
             <h1 className="service__heading">Listings</h1>
-            <button>Filter</button>
-            <button>Export</button>
+            {/* <button>Filter</button>
+            <button>Export</button> */}
           </div>
           <div className="responsive-table__header">
             <div className="responsive-table-header__cell">address</div>
@@ -197,24 +198,16 @@ class ListingsTable extends Component {
             {this.state.listings.map((listing) => {
               return (
                 <div className="responsive-table__row" key={listing.listingID}>
-                  <div className="responsive-table-body__cell">
-                    {listing.address}
+                  <div className="pseudo-test__div--jim">
+                    <div className="responsive-table-body__cell">
+                      {listing.address}
+                    </div>
+                    <img
+                      className="dropdownCta"
+                      src={dropdownArrow}
+                      alt="menu-cta"
+                    />
                   </div>
-                  <img
-                    className="dropdownCta"
-                    src={dropdownArrow}
-                    alt="menu-cta"
-                  />
-                  {/* <button className="listing__cta listing__cta--edit-mobile">
-                    edit
-                  </button>
-                  <button
-                    className="listing__cta listing__cta--delete-mobile"
-                    onClick={() => this.handleDelete(listing.listingID)}
-                  >
-                    delete{" "}
-                  </button> */}
-
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
                     {listing.type || "null"}
                   </div>
@@ -273,3 +266,15 @@ class ListingsTable extends Component {
 }
 
 export default ListingsTable;
+
+/**
+ * postFetchStatus: 'NOT_STARTED'
+ *
+ * postFetchStatus -> 'PENDING'
+ *
+ * postFetchStatus -> 'SUCCESS'
+ *
+ * postFetchStatus -> 'FAILURE'
+ *
+ *
+ */

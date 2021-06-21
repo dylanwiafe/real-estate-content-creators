@@ -411,7 +411,7 @@ body {
   padding: 10px;
   min-width: 7rem;
   text-align: justify;
-  border-top: 6px solid #11193c;
+  // border-top: 6px solid #11193c;
   min-width: 10%;
   max-width: 10%;
   white-space: normal;
@@ -541,7 +541,10 @@ body {
   border-bottom: 1px solid #d3e3f7;
   border-top: 1px solid #d3e3f7;
   color: #001737;
+
+  justify-content: space-between;
   @include tablet {
+    width: 81rem;
     justify-content: space-around;
   }
 }
@@ -653,4 +656,9 @@ body {
 
 .responsive-table-body__button--delete {
   background-color: #ff0000;
+}
+
+.pseudo-test__div--jim {
+  display: flex;
+  width: 20%;
 }

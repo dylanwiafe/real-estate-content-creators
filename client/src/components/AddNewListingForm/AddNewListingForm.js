@@ -2,9 +2,10 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 // import closeModalIcon from "../../assets/icons";
 import axios from "axios";
-
+import "./AddNewListingForm.scss";
 class AddNewListingModal extends Component {
   state = {
+    postFetchStatus: "NOT_STARTED",
     addListingAddress: "",
     selectType: "Residential",
     addListingDate: "",
@@ -90,14 +91,18 @@ class AddNewListingModal extends Component {
       twilightPhotoRequests: this.state.addListingTwilightPhotoRequests,
     };
     console.log(data);
+    // this.setState({postFetchStatus: 'PENDING'})
     axios
       .post("http://localhost:8001/listing/", data)
       .then(function (response) {
         console.log(response);
-        // alert("a new listing has been created");
+        alert("a new listing has been created");
         return axios.get("http://localhost:8001/listing");
+        // this.setState({postFetchStatus: 'SUCCESS'})
       })
       .catch(function (error) {
+        // this.setState({postFetchStatus: 'FAILURED'})
+
         console.log(error);
       });
     // }
@@ -121,143 +126,146 @@ class AddNewListingModal extends Component {
 
     return (
       <div class="add-new-listing">
-        <div class="add-new-listing__row--header">
-          <h2>Add a new listing</h2>
-          {/* <img src={closeModalIcon} alt="close modal icon" /> */}
-        </div>
-        <div class="add-new-listing__col">
-          <div class="add-new-listing__row">
-            <label htmlFor="address">ADDRESS</label>
-            <input
-              name="addListingAddress"
-              placeholder="address"
-              value={this.state.addListingAddress}
-              onChange={this.handleChange}
-            />
-          </div>
+        <div class="add-new-listing__container--outer">
+          <div class="add-new-listing__card">
+            <div class="add-new-listing__row--header">
+              <h2>Add a new listing</h2>
+              {/* <img src={closeModalIcon} alt="close modal icon" /> */}
+            </div>
+            <div class="add-new-listing__col">
+              <div class="add-new-listing__row">
+                <label htmlFor="address">ADDRESS</label>
+                <input
+                  name="addListingAddress"
+                  placeholder="address"
+                  value={this.state.addListingAddress}
+                  onChange={this.handleChange}
+                />
+              </div>
 
-          <div class="add-new-listing__row">
-            <label htmlFor="style">PROPERTY STYLE</label>
-            <select
-              name="selectStyle"
-              onChange={this.handleSelectStyle}
-              value={this.state.selectStyle}
-            >
-              {" "}
-              {this.state.styles.map((elem, index) => {
-                return (
-                  <option value={elem} key={index}>
-                    {elem}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
-        <div class="add-new-listing__col">
-          <div class="add-new-listing__row">
-            <label htmlFor="listingDate">DATE LISTED</label>
-            <input
-              type="text"
-              name="addListingDate"
-              placeholder="date listed: mm/dd/yy"
-              value={this.state.addListingDate}
-              onChange={this.handleChange}
-            />
-          </div>
+              <div class="add-new-listing__row">
+                <label htmlFor="style">PROPERTY STYLE</label>
+                <select
+                  name="selectStyle"
+                  onChange={this.handleSelectStyle}
+                  value={this.state.selectStyle}
+                >
+                  {this.state.styles.map((elem, index) => {
+                    return (
+                      <option value={elem} key={index}>
+                        {elem}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+            <div class="add-new-listing__col">
+              <div class="add-new-listing__row">
+                <label htmlFor="listingDate">DATE LISTED</label>
+                <input
+                  type="text"
+                  name="addListingDate"
+                  placeholder="date listed: mm/dd/yy"
+                  value={this.state.addListingDate}
+                  onChange={this.handleChange}
+                />
+              </div>
 
-          <div class="add-new-listing__row">
-            <label htmlFor="">PROPERTY TYPE</label>
-            <select
-              name="selectType"
-              onChange={this.handleSelectType}
-              value={this.state.selectType}
-            >
-              {this.state.type.map((elem, index) => {
-                return (
-                  <option value={elem} key={index}>
-                    {elem}
-                  </option>
-                );
-              })}{" "}
-            </select>
-          </div>
+              <div class="add-new-listing__row">
+                <label htmlFor="">PROPERTY TYPE</label>
+                <select
+                  name="selectType"
+                  onChange={this.handleSelectType}
+                  value={this.state.selectType}
+                >
+                  {this.state.type.map((elem, index) => {
+                    return (
+                      <option value={elem} key={index}>
+                        {elem}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
 
-          <div class="add-new-listing__row">
-            <label htmlFor="status">STATUS</label>
-            <select
-              name="selectStatus"
-              onChange={this.handleMarketStatus}
-              value={this.state.selectStatus}
-            >
-              {this.state.status.map((elem, index) => {
-                return (
-                  <option value={elem} key={index}>
-                    {elem}
-                  </option>
-                );
-              })}
-            </select>
+              <div class="add-new-listing__row">
+                <label htmlFor="status">STATUS</label>
+                <select
+                  name="selectStatus"
+                  onChange={this.handleMarketStatus}
+                  value={this.state.selectStatus}
+                >
+                  {this.state.status.map((elem, index) => {
+                    return (
+                      <option value={elem} key={index}>
+                        {elem}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            </div>
+            <div class="add-new-listing__row--requests">
+              <h2>
+                Currently seeking potential suitors to provide the following for
+                my listing:
+              </h2>
+              <div class="add-new-listing__row">
+                <label htmlFor="">Aerial Photography</label>
+                <input
+                  name="addListingAerialPhotoRequests"
+                  value={this.state.addListingAerialPhotoRequests}
+                  type="checkbox"
+                  onChange={this.handleChange}
+                  checked={this.state.addListingAerialPhotoRequests === true}
+                />
+              </div>
+              <div class="add-new-listing__row">
+                <label htmlFor="">Aerial Videography</label>
+                <input
+                  name="addListingAerialVideoRequests"
+                  value={this.state.addListingAerialVideoRequests}
+                  type="checkbox"
+                  onChange={this.handleChange}
+                  checked={this.state.addListingAerialVideoRequests === true}
+                />
+              </div>
+              <div class="add-new-listing__row">
+                <label htmlFor="">Development</label>
+                <input
+                  name="addListingDevelopmentRequests"
+                  value={this.state.addListingDevelopmentRequests}
+                  type="checkbox"
+                  onChange={this.handleChange}
+                  checked={this.state.addListingDevelopmentRequests === true}
+                />
+              </div>
+              <div class="add-new-listing__row">
+                <label htmlFor="">Virtual Tour</label>
+                <input
+                  name="addListingVirtualTourRequests"
+                  value={this.state.addListingVirtualTourRequests}
+                  type="checkbox"
+                  onChange={this.handleChange}
+                  checked={this.state.addListingVirtualTourRequests === true}
+                />
+              </div>
+              <div class="add-new-listing__row">
+                <label htmlFor="">Twilight Photography</label>
+                <input
+                  name="addListingTwilightPhotoRequests"
+                  value={this.state.addListingTwilightPhotoRequests}
+                  type="checkbox"
+                  onChange={this.handleChange}
+                  checked={this.state.addListingTwilightPhotoRequests === true}
+                />
+              </div>
+            </div>
+            <div>
+              <button onClick={this.handleUpload}>upload listing</button>
+            </div>
           </div>
-        </div>
-        <div class="add-new-listing__row--requests">
-          <h2>
-            Currently seeking potential suitors to provide the following for my
-            listing:
-          </h2>
-          <div class="add-new-listing__row">
-            <label htmlFor="">Aerial Photography</label>
-            <input
-              name="addListingAerialPhotoRequests"
-              value={this.state.addListingAerialPhotoRequests}
-              type="checkbox"
-              onChange={this.handleChange}
-              checked={this.state.addListingAerialPhotoRequests === true}
-            />
-          </div>
-          <div class="add-new-listing__row">
-            <label htmlFor="">Aerial Videography</label>
-            <input
-              name="addListingAerialVideoRequests"
-              value={this.state.addListingAerialVideoRequests}
-              type="checkbox"
-              onChange={this.handleChange}
-              checked={this.state.addListingAerialVideoRequests === true}
-            />
-          </div>
-          <div class="add-new-listing__row">
-            <label htmlFor="">Development</label>
-            <input
-              name="addListingDevelopmentRequests"
-              value={this.state.addListingDevelopmentRequests}
-              type="checkbox"
-              onChange={this.handleChange}
-              checked={this.state.addListingDevelopmentRequests === true}
-            />
-          </div>
-          <div class="add-new-listing__row">
-            <label htmlFor="">Virtual Tour</label>
-            <input
-              name="addListingVirtualTourRequests"
-              value={this.state.addListingVirtualTourRequests}
-              type="checkbox"
-              onChange={this.handleChange}
-              checked={this.state.addListingVirtualTourRequests === true}
-            />
-          </div>
-          <div class="add-new-listing__row">
-            <label htmlFor="">Twilight Photography</label>
-            <input
-              name="addListingTwilightPhotoRequests"
-              value={this.state.addListingTwilightPhotoRequests}
-              type="checkbox"
-              onChange={this.handleChange}
-              checked={this.state.addListingTwilightPhotoRequests === true}
-            />
-          </div>
-        </div>
-        <div>
-          <button onClick={this.handleUpload}>upload listing</button>
         </div>
       </div>
     );
