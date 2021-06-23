@@ -48,9 +48,12 @@
   height: 30rem;
   width: 30rem;
   border-radius: 0.25rem;
+  // @include tablet {
+  //   margin-bottom: 110rem;
+  // }
 }
 
-.delete-listing__button--cancel {
+.delete-listing__button--confirm {
   background-color: #00e38c;
   border-radius: 3px;
   border: none;
@@ -64,7 +67,7 @@
   }
 }
 
-.delete-listing__button--confirm {
+.delete-listing__button--cancel {
   background-color: #fff;
   border-radius: 3px;
   border: 1px solid #757c99;
@@ -75,5 +78,13 @@
   @include tablet {
     width: 75px;
     height: 30px;
+  }
+}
+
+.delete-listing__icon {
+  @include tablet {
+    height: 10rem;
+    width: 10rem;
+    padding-bottom: 1rem;
   }
 }

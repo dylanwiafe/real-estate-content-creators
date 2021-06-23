@@ -4,13 +4,12 @@
 
 .edit-listing {
   position: fixed;
-  background-color: white;
+  justify-content: center;
   top: 0;
   bottom: 0;
   overflow: hidden;
   height: 100%;
   width: 100%;
-  display: flex;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -29,8 +28,8 @@
     max-width: 42.5rem;
 
     @include tablet {
-      margin: -4.25rem 0.75rem 1.75rem 22.75rem;
-      height: 42rem;
+      margin: 0.75rem 0.75rem 0.75rem 0.75rem;
+      height: 33rem;
       width: 35rem;
     }
   }
@@ -38,5 +37,61 @@
     display: flex;
     justify-content: flex-end;
     padding: 1rem;
+  }
+}
+
+.edit-listing__container--outer {
+  background-image: url("../../assets/bg.png");
+  height: 30rem;
+  width: 30rem;
+  // margin-bottom: 110rem;
+  border-radius: 0.25rem;
+
+  // margin-bottom: 130rem;
+  @include tablet {
+    // height: 35rem;
+    height: 45rem;
+    width: 37rem;
+  }
+}
+
+.edit-listing__row--header {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 14rem;
+  padding-right: 1rem;
+}
+
+.edit-listing__icon {
+  width: 2rem;
+  height: 1.5rem;
+  margin-top: 1rem;
+}
+
+.edit-listing__button--upload {
+  background-color: #00e38c;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  width: 95px;
+  height: 30px;
+  margin-right: 1rem;
+  @include tablet {
+    width: 75px;
+    height: 30px;
+  }
+}
+
+.edit-listing__button--cancel {
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #757c99;
+  color: #757c99;
+  width: 95px;
+  height: 30px;
+  margin-right: 1rem;
+  @include tablet {
+    width: 75px;
+    height: 30px;
   }
 }

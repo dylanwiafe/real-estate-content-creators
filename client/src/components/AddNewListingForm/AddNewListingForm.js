@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-// import closeModalIcon from "../../assets/icons";
+import closeModalIcon from "../../assets/icons/cancel-icon.svg";
 import axios from "axios";
 import "./AddNewListingForm.scss";
 class AddNewListingModal extends Component {
@@ -141,7 +141,11 @@ class AddNewListingModal extends Component {
           <div class="add-new-listing__card">
             <div class="add-new-listing__row--header">
               <h2>Add a new listing</h2>
-              {/* <img src={closeModalIcon} alt="close modal icon" /> */}
+              <img
+                className="add-new-listing__icon"
+                src={closeModalIcon}
+                alt="close modal icon"
+              />
             </div>
             <div class="add-new-listing__col">
               <div class="add-new-listing__row">

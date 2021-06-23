@@ -15,6 +15,11 @@ import EditListingModal from "../EditListingModal/EditListingModal";
 import DeleteListingModal from "../../components/DeleteListingModal/DeleteListingModal";
 import editIcon from "../../assets/icons/edit-icon.svg";
 import deleteIcon from "../../assets/icons/delete-icon.svg";
+import cardIcon from "../../assets/icons/SVG/drone-photography.svg";
+import cardIcon2 from "../../assets/icons/SVG/drone-videography.svg";
+import cardIcon3 from "../../assets/icons/SVG/real-estate-twilight-photography-1.svg";
+import cardIcon4 from "../../assets/icons/SVG/virtual-video-tours.svg";
+import cardIcon5 from "../../assets/icons/SVG/real-estate-twilight-photography-2.svg";
 
 // import ServiceCardGrid from "../ServiceCardGrid/ServiceCardGrid";
 
@@ -132,23 +137,28 @@ class ListingsTable extends Component {
         </div>
         <div className="service__grid">
           <div className="service__card">
+            <img className="card__icon" src={cardIcon} alt="" />
             <p className="card__heading">exterior photography</p>
             <p className="card__copy">view experts in my area</p>
           </div>
 
           <div className="service__card">
+            <img className="card__icon" src={cardIcon4} alt="" />
             <p className="card__heading">interior photography</p>
             <p className="card__copy">view experts in my area</p>
           </div>
           <div className="service__card">
+            <img className="card__icon" src={cardIcon3} alt="" />
             <p className="card__heading">portraits</p>
             <p className="card__copy">view experts in my area</p>
           </div>
           <div className="service__card--lg">
+            <img className="card__icon" src={cardIcon5} alt="" />
             <p className="card__heading">misc.</p>
             <p className="card__copy">view experts in my area</p>
           </div>
           <div className="service__card--lg-2">
+            <img className="card__icon" src={cardIcon2} alt="" />
             <p className="card__heading">aerial photography</p>
             <p className="card__copy">hire experts in my area</p>
           </div>

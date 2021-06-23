@@ -43,8 +43,10 @@
   font-display: swap;
 }
 
-h1 {
+h1,
+h2 {
   font-family: "Poppins";
+  font-weight: 400;
 }
 
 .responsive-table-header__cell {

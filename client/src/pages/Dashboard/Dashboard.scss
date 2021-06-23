@@ -4,7 +4,8 @@
 
 * {
   text-decoration: none;
-  font-family: "Poppins";
+  // font-family: "Poppins";
+  overflow-x: visible;
 }
 nav {
   background-color: #fff;
@@ -651,11 +652,26 @@ body {
 }
 
 .responsive-table-body__button--edit {
-  background-color: #2464fc;
+  // background-color: #2464fc;
+  margin-right: 0.2rem;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .responsive-table-body__button--delete {
-  background-color: #ff0000;
+  // background-color: #ff0000;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 14%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .pseudo-test__div--jim {
@@ -668,3 +684,26 @@ body {
   height: 43.38px;
   padding-left: 1rem;
 }
+
+.card__icon {
+  height: 40px;
+  width: 40px;
+  padding-left: 1rem;
+}
+
+input,
+select {
+  outline: none;
+  background-color: #f5f5f5;
+  border-radius: 0.25rem;
+  padding: 0.7rem;
+  border: 1px solid #ededed;
+  color: #394164;
+  margin-left: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+// input[type="checkbox"]#checkbox1:checked + span {
+//   border-color: red;
+//   background-color: red;
+// }

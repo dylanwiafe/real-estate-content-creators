@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // import closeModalIcon from "../../assets/icons"
 import "./DeleteListingModal.scss";
 import cancelIcon from "../../assets/icons/cancel-icon.svg";
-
+import deleteIcon from "../../assets/icons/5.svg";
 class DeleteListingModal extends Component {
   render() {
     return (
@@ -26,7 +26,7 @@ class DeleteListingModal extends Component {
             <div class="delete-listing__container">
               <p>Are you sure you want to delete this listing?</p>
               <p>If you do you won't be able to retrieve it!</p>
-
+              <img src={deleteIcon} className="delete-listing__icon" alt="" />
               <div class="delete-listing__row--buttons">
                 <button
                   class="delete-listing__button--confirm"

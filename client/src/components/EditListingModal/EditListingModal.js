@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import cancelIcon from "../../assets/icons/cancel-icon.svg";
+import closeModalIcon from "../../assets/icons/cancel-icon.svg";
 import "./EditListingModal.scss";
 import axios from "axios";
 class EditListingModal extends Component {
@@ -187,7 +187,11 @@ class EditListingModal extends Component {
           <div class="edit-listing__card">
             <div class="edit-listing__row--header">
               <h2>Edit listing</h2>
-              {/* <img src={closeModalIcon} alt="close modal icon" /> */}
+              <img
+                className="edit-listing__icon"
+                src={closeModalIcon}
+                alt="close modal icon"
+              />
             </div>
             <div class="edit-listing__col">
               <div class="edit-listing__row">
@@ -320,7 +324,14 @@ class EditListingModal extends Component {
               </div>
             </div>
             <div>
-              <button onClick={this.handleUpdate}>upload listing</button>
+              <button className="edit-listing__button--cancel">cancel</button>
+
+              <button
+                className="edit-listing__button--upload"
+                onClick={this.handleUpdate}
+              >
+                update
+              </button>
             </div>
           </div>
         </div>
