@@ -31,9 +31,13 @@ class AddNewListingModal extends Component {
   };
 
   componentDidMount = () => {
+    this.getListings();
+  };
+  getListings = () => {
     axios
       .get("http://localhost:8001/listing")
       .then((response) => {
+        console.log(response);
         this.setState({
           selectStatus: response.data,
           selectStyle: response.data,
@@ -100,8 +104,10 @@ class AddNewListingModal extends Component {
         .then(function (response) {
           console.log(response);
           alert("a new listing has been created");
-          return axios.get("http://localhost:8001/listing");
+          // this.getListings();
+          // return axios.get("http://localhost:8001/listing");
           // this.setState({postFetchStatus: 'SUCCESS'})
+          window.location.reload();
         })
         .catch(function (error) {
           // this.setState({postFetchStatus: 'FAILURED'})

@@ -78,7 +78,9 @@ class EditListingModal extends Component {
         .then(function (response) {
           console.log(response);
           alert("your listing has been updated!");
-          return axios.get("http://localhost:8001/listing");
+          // return axios.get("http://localhost:8001/listing");
+          window.location.reload();
+
           // this.setState({postFetchStatus: 'SUCCESS'})
         })
         .catch(function (error) {
