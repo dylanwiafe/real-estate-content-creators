@@ -15,10 +15,17 @@ class Header extends Component {
     console.log("testing");
   };
 
+  cancelUpload = () => {
+    console.log("would you like to close this modal?");
+    this.setState({ showDeleteModal: false });
+  };
+
   render() {
     return (
       <div>
-        {this.state.showAddModal && <AddNewListingModal />}
+        {this.state.showAddModal && (
+          <AddNewListingModal cancelUpload={this.cancelUpload} />
+        )}
         <header>
           <nav className="nav">
             <div className="nav__container">

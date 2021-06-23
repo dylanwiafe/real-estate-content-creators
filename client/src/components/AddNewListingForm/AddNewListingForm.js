@@ -53,59 +53,64 @@ class AddNewListingModal extends Component {
     this.setState({ [name]: value });
   };
 
-  // isFormCompleted = () => {
-  //   if (
-  //     !this.state.addListingAddress ||
-  //     !this.state.selectType ||
-  //     !this.state.addListingDate ||
-  //     !this.state.selectStatus ||
-  //     !this.state.selectStyle ||
-  //     !this.state.addListingTwilightPhotoRequests ||
-  //     !this.state.addListingAerialPhotoRequests ||
-  //     !this.state.addListingAerialVideoRequests ||
-  //     !this.state.addListingVirtualTourRequests ||
-  //     !this.state.addListingDevelopmentRequests
-  //   ) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // };
+  isFormCompleted = () => {
+    if (
+      this.state.addListingAddress === "" ||
+      this.state.selectType === "" ||
+      typeof this.state.selectType !== "string" ||
+      this.state.addListingDate === "" ||
+      this.state.selectStatus === "" ||
+      typeof this.state.selectStatus !== "string" ||
+      this.state.selectStyle === "" ||
+      typeof this.state.selectStyle !== "string" ||
+      this.state.addListingTwilightPhotoRequests === "" ||
+      this.state.addListingAerialPhotoRequests === "" ||
+      this.state.addListingAerialVideoRequests === "" ||
+      this.state.addListingVirtualTourRequests === "" ||
+      this.state.addListingDevelopmentRequests === ""
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   handleUpload = (event) => {
     event.preventDefault();
     // console.log(this.state);
     // console.log(this.isFormCompleted());
 
-    // if (this.isFormCompleted()) {
-    const data = {
-      address: this.state.addListingAddress,
-      dateListed: this.state.addListingDate,
-      type: this.state.selectType,
-      style: this.state.selectStyle,
-      status: this.state.selectStatus,
-      dronePhotoRequests: this.state.addListingAerialPhotoRequests,
-      droneVideoRequests: this.state.addListingAerialVideoRequests,
-      developmentRequests: this.state.addListingDevelopmentRequests,
-      virtualTourRequests: this.state.addListingVirtualTourRequests,
-      twilightPhotoRequests: this.state.addListingTwilightPhotoRequests,
-    };
-    console.log(data);
-    // this.setState({postFetchStatus: 'PENDING'})
-    axios
-      .post("http://localhost:8001/listing/", data)
-      .then(function (response) {
-        console.log(response);
-        alert("a new listing has been created");
-        return axios.get("http://localhost:8001/listing");
-        // this.setState({postFetchStatus: 'SUCCESS'})
-      })
-      .catch(function (error) {
-        // this.setState({postFetchStatus: 'FAILURED'})
+    if (this.isFormCompleted()) {
+      const data = {
+        address: this.state.addListingAddress,
+        dateListed: this.state.addListingDate,
+        type: this.state.selectType,
+        style: this.state.selectStyle,
+        status: this.state.selectStatus,
+        dronePhotoRequests: this.state.addListingAerialPhotoRequests,
+        droneVideoRequests: this.state.addListingAerialVideoRequests,
+        developmentRequests: this.state.addListingDevelopmentRequests,
+        virtualTourRequests: this.state.addListingVirtualTourRequests,
+        twilightPhotoRequests: this.state.addListingTwilightPhotoRequests,
+      };
+      console.log(data);
+      // this.setState({postFetchStatus: 'PENDING'})
+      axios
+        .post("http://localhost:8001/listing/", data)
+        .then(function (response) {
+          console.log(response);
+          alert("a new listing has been created");
+          return axios.get("http://localhost:8001/listing");
+          // this.setState({postFetchStatus: 'SUCCESS'})
+        })
+        .catch(function (error) {
+          // this.setState({postFetchStatus: 'FAILURED'})
 
-        console.log(error);
-      });
-    // }
+          console.log(error);
+        });
+    } else {
+      alert("Complete the form");
+    }
   };
 
   handleSelectStyle = (event) => {
@@ -263,7 +268,18 @@ class AddNewListingModal extends Component {
               </div>
             </div>
             <div>
-              <button onClick={this.handleUpload}>upload listing</button>
+              <button
+                className="add-new-listing__button--cancel"
+                onClick={this.props.cancelUpload}
+              >
+                cancel
+              </button>
+              <button
+                className="add-new-listing__button--upload"
+                onClick={this.handleUpload}
+              >
+                upload
+              </button>
             </div>
           </div>
         </div>

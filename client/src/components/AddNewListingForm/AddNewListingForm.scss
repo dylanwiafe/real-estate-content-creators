@@ -14,6 +14,8 @@
   display: flex;
   z-index: 2;
   align-items: center;
+  display: flex;
+  align-items: center;
   @include tablet {
     background: rgba(35, 41, 64, 0.7);
   }
@@ -33,12 +35,17 @@
       width: 35rem;
     }
   }
+  &__container--close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
 }
 
 .add-new-listing__container--outer {
   background-image: url("../../assets/bg.png");
-  //   height: 30rem;
-  //   width: 30rem;
+  height: 30rem;
+  width: 30rem;
   border-radius: 0.25rem;
   @include tablet {
     height: 35rem;
@@ -46,7 +53,7 @@
   }
 }
 
-button {
+.add-new-listing__button--cancel {
   background-color: #00e38c;
   border-radius: 3px;
   border: none;
@@ -58,10 +65,18 @@ button {
     width: 75px;
     height: 30px;
   }
+}
 
-  &__container--close {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1rem;
+.add-new-listing__button--confirm {
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #757c99;
+  color: #757c99;
+  width: 95px;
+  height: 30px;
+  margin-right: 1rem;
+  @include tablet {
+    width: 75px;
+    height: 30px;
   }
 }

@@ -14,6 +14,8 @@
   display: flex;
   z-index: 2;
   align-items: center;
+  display: flex;
+  align-items: center;
 
   @include tablet {
     background: rgba(35, 41, 64, 0.7);
@@ -29,8 +31,8 @@
 
     @include tablet {
       margin: 0.75rem 0.75rem 0.75rem 0.75rem;
-      height: 25rem;
-      width: 25rem;
+      height: 28rem;
+      width: 28rem;
     }
   }
 }

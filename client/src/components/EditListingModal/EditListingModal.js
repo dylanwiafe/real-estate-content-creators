@@ -58,35 +58,59 @@ class EditListingModal extends Component {
     // console.log(this.state);
     // console.log(this.isFormCompleted());
     const id = this.props.listingToEdit.listingID;
-    // if (this.isFormCompleted()) {
-    const data = {
-      address: this.state.editListingAddress,
-      dateListed: this.state.editListingDate,
-      type: this.state.selectType,
-      style: this.state.selectStyle,
-      status: this.state.selectStatus,
-      dronePhotoRequests: this.state.editListingAerialPhotoRequests,
-      droneVideoRequests: this.state.editListingAerialVideoRequests,
-      developmentRequests: this.state.editListingDevelopmentRequests,
-      virtualTourRequests: this.state.editListingVirtualTourRequests,
-      twilightPhotoRequests: this.state.editListingTwilightPhotoRequests,
-    };
-    console.log(data);
-    // this.setState({postFetchStatus: 'PENDING'})
-    axios
-      .put(`http://localhost:8001/listing/${id}`, data)
-      .then(function (response) {
-        console.log(response);
-        alert("your listing has been updated!");
-        return axios.get("http://localhost:8001/listing");
-        // this.setState({postFetchStatus: 'SUCCESS'})
-      })
-      .catch(function (error) {
-        // this.setState({postFetchStatus: 'FAILURED'})
+    if (this.isFormCompleted()) {
+      const data = {
+        address: this.state.editListingAddress,
+        dateListed: this.state.editListingDate,
+        type: this.state.selectType,
+        style: this.state.selectStyle,
+        status: this.state.selectStatus,
+        dronePhotoRequests: this.state.editListingAerialPhotoRequests,
+        droneVideoRequests: this.state.editListingAerialVideoRequests,
+        developmentRequests: this.state.editListingDevelopmentRequests,
+        virtualTourRequests: this.state.editListingVirtualTourRequests,
+        twilightPhotoRequests: this.state.editListingTwilightPhotoRequests,
+      };
+      console.log(data);
+      // this.setState({postFetchStatus: 'PENDING'})
+      axios
+        .put(`http://localhost:8001/listing/${id}`, data)
+        .then(function (response) {
+          console.log(response);
+          alert("your listing has been updated!");
+          return axios.get("http://localhost:8001/listing");
+          // this.setState({postFetchStatus: 'SUCCESS'})
+        })
+        .catch(function (error) {
+          // this.setState({postFetchStatus: 'FAILURED'})
 
-        console.log(error);
-      });
-    // }
+          console.log(error);
+        });
+    } else {
+      alert("There are some fields missing");
+    }
+  };
+
+  isFormCompleted = () => {
+    if (
+      this.state.addListingAddress === "" ||
+      this.state.selectType === "" ||
+      typeof this.state.selectType !== "string" ||
+      this.state.addListingDate === "" ||
+      this.state.selectStatus === "" ||
+      typeof this.state.selectStatus !== "string" ||
+      this.state.selectStyle === "" ||
+      typeof this.state.selectStyle !== "string" ||
+      this.state.addListingTwilightPhotoRequests === "" ||
+      this.state.addListingAerialPhotoRequests === "" ||
+      this.state.addListingAerialVideoRequests === "" ||
+      this.state.addListingVirtualTourRequests === "" ||
+      this.state.addListingDevelopmentRequests === ""
+    ) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   handleSelectStyle = (event) => {
@@ -160,7 +184,7 @@ class EditListingModal extends Component {
         <div class="edit-listing__container--outer">
           <div class="edit-listing__card">
             <div class="edit-listing__row--header">
-              <h2>Add a new listing</h2>
+              <h2>Edit listing</h2>
               {/* <img src={closeModalIcon} alt="close modal icon" /> */}
             </div>
             <div class="edit-listing__col">

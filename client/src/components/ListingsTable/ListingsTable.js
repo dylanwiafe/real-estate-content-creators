@@ -113,7 +113,7 @@ class ListingsTable extends Component {
       <div className="service">
         {this.state.showDeleteModal && (
           <DeleteListingModal
-            // listingToDelete={this.state.listingToDelete}
+            listingToDelete={this.state.listingToDelete}
             confirmDelete={this.confirmDelete}
             cancelDelete={this.cancelDelete}
           />
@@ -222,19 +222,19 @@ class ListingsTable extends Component {
                     {listing.status || "null"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.TwilightPhotographyRequests || "0x requests"}
+                    {listing.TwilightPhotographyRequests ? "true" : "none"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.droneVideoRequests || "0x requests"}
+                    {listing.droneVideoRequests ? "true" : "none"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.dronePhotoRequest || "0x requests"}
+                    {listing.dronePhotoRequest ? "true" : "none"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.virtualTourRequests || "0x requests"}
+                    {listing.virtualTourRequests ? "true" : "none"}
                   </div>
                   <div className="responsive-table-body__cell responsive-table-body__cell--hidden">
-                    {listing.developmentRequests || "0x requests"}
+                    {listing.developmentRequests ? "true" : "none"}
                   </div>
                   <div>
                     <div className="responsive-table-body__container--buttons">
