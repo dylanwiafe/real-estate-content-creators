@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-// import closeModalIcon from "../../assets/icons"
 
 class ViewListingModal extends Component {
   render() {
@@ -8,13 +6,8 @@ class ViewListingModal extends Component {
       <div class="view-listing">
         <div class="view-listing__row">
           <h2>Lorem ipsum</h2>
-          <Link>
-            {/* <img src={closeModalIcon} alt="close modal icon" /> */}
-          </Link>
         </div>
-        <div class="view-listing__container--photo">
-          {/* <img src={propertyImg} alt="" /> */}
-        </div>
+        <div class="view-listing__container--photo"></div>
         <div>
           <h2>Requests</h2>
           <div class="view-listing__col">
