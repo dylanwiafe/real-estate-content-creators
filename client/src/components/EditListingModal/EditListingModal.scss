@@ -44,12 +44,9 @@
   background-image: url("../../assets/bg.png");
   height: 30rem;
   width: 30rem;
-  // margin-bottom: 110rem;
   border-radius: 0.25rem;
 
-  // margin-bottom: 130rem;
   @include tablet {
-    // height: 35rem;
     height: 45rem;
     width: 37rem;
   }

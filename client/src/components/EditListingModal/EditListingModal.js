@@ -40,12 +40,11 @@ class EditListingModal extends Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        alert("an error has occured");
       });
   };
 
   handleChange = (event) => {
-    // const { name, value } = event.target;
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -55,8 +54,7 @@ class EditListingModal extends Component {
 
   handleUpdate = (event) => {
     event.preventDefault();
-    // console.log(this.state);
-    // console.log(this.isFormCompleted());
+
     const id = this.props.listingToEdit.listingID;
     if (this.isFormCompleted()) {
       const data = {
@@ -70,23 +68,18 @@ class EditListingModal extends Component {
         developmentRequests: this.state.editListingDevelopmentRequests,
         virtualTourRequests: this.state.editListingVirtualTourRequests,
         twilightPhotoRequests: this.state.editListingTwilightPhotoRequests,
+        listingID: id,
       };
-      console.log(data);
-      // this.setState({postFetchStatus: 'PENDING'})
+
       axios
         .put(`http://localhost:8001/listing/${id}`, data)
         .then(function (response) {
-          console.log(response);
           alert("your listing has been updated!");
-          // return axios.get("http://localhost:8001/listing");
-          window.location.reload();
 
-          // this.setState({postFetchStatus: 'SUCCESS'})
+          window.location.reload();
         })
         .catch(function (error) {
-          // this.setState({postFetchStatus: 'FAILURED'})
-
-          console.log(error);
+          alert("an error has occured");
         });
     } else {
       alert("There are some fields missing");
@@ -125,60 +118,6 @@ class EditListingModal extends Component {
   handleSelectType = (event) => {
     this.setState({ selectType: event.target.value });
   };
-  // handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   const requiredListingData = {
-  //     id: "",
-  //     address: event.target.address,
-  //     dateListed: event.target.dateListed,
-  //     type: event.target.type,
-  //     style: event.target.style,
-  //     status: event.target.status,
-  //     dronePhotoRequests: event.target.dronePhotoRequests,
-  //     droneVideoRequests: event.target.droneVideoRequests,
-  //     developmentRequests: event.target.developmentRequests,
-  //     virtualTourRequests: event.target.virtualTourRequests,
-  //     twilightPhotoRequests: event.target.twilightPhotoRequests,
-  //   };
-
-  //   console.log(requiredListingData);
-
-  //   axios
-  //     .put(
-  //       `http://localhost8001/listing/edit ${this.state.listing.id}`,
-  //       requiredListingData
-  //     )
-  //     .then((response) => {
-  //       console.log(response);
-  //       this.setState({ formSubmit: true });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-
-  //   event.target.reset();
-  // };
-
-  // componentDidMount = () => {
-  //   const id = this.props.match.params.id;
-  //   axios.get(`http://localhost8001/listing/${id}`).then((response) => {
-  //     console.log(response.data);
-  //     this.setState = {
-  //       id: response.id,
-  //       address: response.address,
-  //       dateListed: response.dateListed,
-  //       type: response.type,
-  //       style: response.style,
-  //       status: response.status,
-  //       dronePhotoRequests: response.dronePhotoRequests,
-  //       droneVideoRequests: response.droneVideoRequests,
-  //       developmentRequests: response.developmentRequests,
-  //       virtualTourRequests: response.virtualTourRequests,
-  //       twilightPhotoRequests: response.twilightPhotoRequests,
-  //     };
-  //   });
-  // };
 
   render() {
     return (
@@ -191,6 +130,7 @@ class EditListingModal extends Component {
                 className="edit-listing__icon"
                 src={closeModalIcon}
                 alt="close modal icon"
+                onClick={this.props.cancelEdit}
               />
             </div>
             <div class="edit-listing__col">
@@ -324,7 +264,12 @@ class EditListingModal extends Component {
               </div>
             </div>
             <div>
-              <button className="edit-listing__button--cancel">cancel</button>
+              <button
+                className="edit-listing__button--cancel"
+                onClick={this.props.cancelEdit}
+              >
+                cancel
+              </button>
 
               <button
                 className="edit-listing__button--upload"

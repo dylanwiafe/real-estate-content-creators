@@ -12,12 +12,10 @@ class Header extends Component {
 
   showModal = () => {
     this.setState({ showAddModal: true });
-    console.log("testing");
   };
 
   cancelUpload = () => {
-    console.log("would you like to close this modal?");
-    this.setState({ showDeleteModal: false });
+    this.setState({ showAddModal: false });
   };
 
   render() {

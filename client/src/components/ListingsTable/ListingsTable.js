@@ -1,13 +1,10 @@
 import { Component } from "react";
 import axios from "axios";
-// import editIcon from "../../assets/icons"
-// import deleteIcon from "../../assets/icons"
-// import listingModla from "../ListingsModal/ListingsModal"
-// import  { Link } from 'react-router-dom';
+
 import TwilightPhotographyRequest from "../../assets/icons/twilight-photo-icon.svg";
 import AerialVideographyRequest from "../../assets/icons/drone-photo-icon.svg";
 import AerialPhotographyRequest from "../../assets/icons/drone-photo-icon.svg";
-// import TwilightPhotographyRequest from
+
 import VirtualTourRequest from "../../assets/icons/virtual-tour-icon.svg";
 import DevelopmentRequest from "../../assets/icons/development-icon.svg";
 import dropdownArrow from "../../assets/icons/dropdown-chevron.svg";
@@ -21,8 +18,6 @@ import cardIcon3 from "../../assets/icons/SVG/real-estate-twilight-photography-1
 import cardIcon4 from "../../assets/icons/SVG/virtual-video-tours.svg";
 import cardIcon5 from "../../assets/icons/SVG/real-estate-twilight-photography-2.svg";
 
-// import ServiceCardGrid from "../ServiceCardGrid/ServiceCardGrid";
-
 class ListingsTable extends Component {
   state = {
     listings: [],
@@ -32,25 +27,18 @@ class ListingsTable extends Component {
     listingToDelete: {},
   };
 
-  //create a component did mount function
-  //inside place an axios get request to localhost:8001/listing
-  //in your .then after set the state to listings: response.data]
-
   componentDidMount() {
     axios
       .get("http://localhost:8001/listing")
       .then((response) => {
-        console.log(response.data);
         this.setState({ listings: response.data });
       })
       .catch((error) => {
-        console.log(error);
+        alert("an error has occured");
       });
   }
 
-  //you'll need a handle delete function that takes in a parameter of ID
   handleDelete = (id) => {
-    console.log(id);
     const listingToDelete = this.state.listings.find(
       (listing) => listing.listingID === id
     );
@@ -64,56 +52,44 @@ class ListingsTable extends Component {
     );
     this.setState({ showEditModal: true, listingToEdit });
   };
-  //inside the handle delete I'm using the find method on the state
-  //of listings to do a strict equals comparison on the id of the item I want to delete
-  //to one that exists in the json object
-  //then I'm setting the state of the delete function to be true
-
-  //you'll need a cancel delete function for the x on the modal
-  //inside this function you'll set the state of showing the modal to false
 
   confirmDelete = () => {
-    console.log("confirm delete?");
     axios
       .delete(
         "http://localhost:8001/listing/" + this.state.listingToDelete.listingID
       )
       .then((response) => {
-        console.log(response);
         return axios.get("http://localhost:8001/listing");
       })
       .then((response) => {
-        console.log(response);
         this.setState({ showDeleteModal: false, listings: response.data });
       })
       .catch((error) => {
-        console.log(error);
+        alert("an error has occured");
       });
   };
 
   confirmEdit = () => {
-    console.log("are you sure you want to render these updates?");
-
     axios
       .put(
         "https://localhost:8001/listing" + this.state.listingToEdit.listingID
       )
       .then((response) => {
-        console.log(response);
         this.setState({ showEditModal: false, listings: response.data });
       })
       .catch((error) => {
-        console.log(error);
+        alert("an error has occured");
       });
   };
 
   cancelDelete = () => {
-    console.log("would you like to close this modal?");
     this.setState({ showDeleteModal: false });
+  };
+  cancelEdit = () => {
+    this.setState({ showEditModal: false });
   };
 
   render() {
-    console.log(this.state.listings, " this console");
     return (
       <div className="service">
         {this.state.showDeleteModal && (
@@ -128,7 +104,7 @@ class ListingsTable extends Component {
             listingToEdit={this.state.listingToEdit}
             // listingToDelete={}
             // confirmDelete={}
-            // cancelDelete={}
+            cancelEdit={this.cancelEdit}
           />
         )}
         {/* <ServiceCardGrid /> */}
@@ -167,8 +143,6 @@ class ListingsTable extends Component {
         <div className="responsive-table">
           <div className="responsive-table__header--title">
             <h1 className="service__heading">Listings</h1>
-            {/* <button>Filter</button>
-            <button>Export</button> */}
           </div>
           <div className="responsive-table__header">
             <div className="responsive-table-header__cell">address</div>
@@ -248,19 +222,23 @@ class ListingsTable extends Component {
                   </div>
                   <div>
                     <div className="responsive-table-body__container--buttons">
-                      <button className="responsive-table-body__button responsive-table-body__button--edit">
+                      <button
+                        onClick={() => this.handleEdit(listing.listingID)}
+                        className="responsive-table-body__button responsive-table-body__button--edit"
+                      >
                         <img
                           className="responsive-table-body__icon--edit"
                           src={editIcon}
-                          onClick={() => this.handleEdit(listing.listingID)}
                           alt="icon for editing a listing"
                         />
                       </button>
-                      <button className="responsive-table-body__button responsive-table-body__button--delete">
+                      <button
+                        onClick={() => this.handleDelete(listing.listingID)}
+                        className="responsive-table-body__button responsive-table-body__button--delete"
+                      >
                         <img
                           className="responsive-table-body__icon--delete"
                           src={deleteIcon}
-                          onClick={() => this.handleDelete(listing.listingID)}
                           alt="icon for deleting a listing"
                         />
                       </button>

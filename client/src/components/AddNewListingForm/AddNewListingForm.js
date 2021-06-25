@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+
 import closeModalIcon from "../../assets/icons/cancel-icon.svg";
 import axios from "axios";
 import "./AddNewListingForm.scss";
@@ -37,7 +37,6 @@ class AddNewListingModal extends Component {
     axios
       .get("http://localhost:8001/listing")
       .then((response) => {
-        console.log(response);
         this.setState({
           selectStatus: response.data,
           selectStyle: response.data,
@@ -45,11 +44,10 @@ class AddNewListingModal extends Component {
         });
       })
       .catch((error) => {
-        console.log(error);
+        alert("an error has occured");
       });
   };
   handleChange = (event) => {
-    // const { name, value } = event.target;
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -81,8 +79,6 @@ class AddNewListingModal extends Component {
 
   handleUpload = (event) => {
     event.preventDefault();
-    // console.log(this.state);
-    // console.log(this.isFormCompleted());
 
     if (this.isFormCompleted()) {
       const data = {
@@ -97,22 +93,16 @@ class AddNewListingModal extends Component {
         virtualTourRequests: this.state.addListingVirtualTourRequests,
         twilightPhotoRequests: this.state.addListingTwilightPhotoRequests,
       };
-      console.log(data);
-      // this.setState({postFetchStatus: 'PENDING'})
+
       axios
         .post("http://localhost:8001/listing/", data)
         .then(function (response) {
-          console.log(response);
           alert("a new listing has been created");
-          // this.getListings();
-          // return axios.get("http://localhost:8001/listing");
-          // this.setState({postFetchStatus: 'SUCCESS'})
+
           window.location.reload();
         })
         .catch(function (error) {
-          // this.setState({postFetchStatus: 'FAILURED'})
-
-          console.log(error);
+          alert("an error has occured");
         });
     } else {
       alert("Complete the form");
@@ -131,10 +121,6 @@ class AddNewListingModal extends Component {
   };
 
   render() {
-    // const styles = this.state.styles;
-    // const type = this.state.type;
-    // const status = this.state.status;
-
     return (
       <div class="add-new-listing">
         <div class="add-new-listing__container--outer">
@@ -144,6 +130,7 @@ class AddNewListingModal extends Component {
               <img
                 className="add-new-listing__icon"
                 src={closeModalIcon}
+                onClick={this.props.cancelUpload}
                 alt="close modal icon"
               />
             </div>
