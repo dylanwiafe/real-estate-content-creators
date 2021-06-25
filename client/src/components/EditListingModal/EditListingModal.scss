@@ -67,28 +67,28 @@
 
 .edit-listing__button--upload {
   background-color: #00e38c;
-  border-radius: 3px;
+  border-radius: 0.188rem;
   border: none;
   color: white;
-  width: 95px;
-  height: 30px;
+  width: 5.938rem;
+  height: 1.875rem;
   margin-right: 1rem;
   @include tablet {
-    width: 75px;
-    height: 30px;
+    width: 4.688rem;
+    height: 1.875rem;
   }
 }
 
 .edit-listing__button--cancel {
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 0.188rem;
   border: 1px solid #757c99;
   color: #757c99;
-  width: 95px;
-  height: 30px;
+  width: 5.938rem;
+  height: 1.875rem;
   margin-right: 1rem;
   @include tablet {
-    width: 75px;
-    height: 30px;
+    width: 4.688rem;
+    height: 1.875rem;
   }
 }

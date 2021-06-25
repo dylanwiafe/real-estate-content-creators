@@ -28,8 +28,8 @@ body {
 }
 
 .nav__button {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: #00e38c;
   border: none;
   padding: 2rem;
@@ -43,7 +43,7 @@ body {
   align-items: center;
   margin-right: 1.5rem;
   @include tablet {
-    width: 123px;
+    width: 7.688rem;
     margin-top: 0.5rem;
     padding: 0;
     border-radius: 0.25rem;
@@ -215,7 +215,7 @@ body {
   width: 19.5rem;
   grid-column: 1 / span 2;
   grid-row: 3 / span 2;
-  min-width: 359px;
+  min-width: 22.438rem;
   margin-top: 0;
   color: white;
   display: flex;
@@ -267,7 +267,7 @@ body {
   background-color: #fff;
   color: #11193c;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 1.563rem;
   text-align: center;
 
   font-weight: bold;
@@ -281,7 +281,7 @@ body {
 
 .responsive-table-header__cell {
   display: table-cell;
-  padding: 10px;
+  padding: 0.625rem;
   min-width: 7rem;
   text-align: justify;
 
@@ -458,11 +458,11 @@ body {
 }
 
 .card__heading {
-  font-size: 15px;
+  font-size: 0.938rem;
   padding-left: 1rem;
 }
 .card__copy {
-  font-size: 10px;
+  font-size: 0.625rem;
   padding-left: 1rem;
   padding-bottom: 1rem;
 }
@@ -497,9 +497,9 @@ body {
   display: flex;
 }
 .responsive-table-body__button {
-  width: 75px;
-  height: 24px;
-  border-radius: 20px;
+  width: 4.688rem;
+  height: 1.5rem;
+  border-radius: 1.25rem
 
   border: none;
 }
@@ -531,14 +531,14 @@ body {
 }
 
 .service__icon {
-  width: 41px;
-  height: 43.38px;
+  width: 2.563rem;
+  height: 2.711rem;
   padding-left: 1rem;
 }
 
 .card__icon {
-  height: 40px;
-  width: 40px;
+  height: 2.713rem;
+  width: 2.713rem;
   padding-left: 1rem;
 }
 
